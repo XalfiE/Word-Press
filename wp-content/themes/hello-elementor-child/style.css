@@ -1,0 +1,32 @@
+/*
+Theme Name:   Hello Elementor Child
+Theme URI:    https://github.com/Josemuturi/Word-Press
+Description:  Child theme for Hello Elementor — John Kimani Consulting
+Author:       Freelance WordPress Developer
+Template:     hello-elementor
+Version:      1.0.0
+License:      GNU General Public License v2 or later
+License URI:  https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  hello-elementor-child
+*/
+
+/* ============================================================
+   Global Overrides
+   ============================================================ */
+
+:root {
+  --color-primary: #0A2540;
+  --color-accent: #00C2CB;
+  --color-neutral: #F5F7FA;
+  --font-heading: 'DM Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #1A1A2E;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
