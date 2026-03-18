@@ -131,3 +131,70 @@ h1, h2, h3, h4, h5, h6 {
   color: #5a6a7e;
   line-height: 1.6;
 }
+
+/* ============================================================
+   About Page
+   ============================================================ */
+
+.about-bio-section {
+  padding: 96px 0;
+}
+
+.about-photo {
+  border-radius: 8px;
+  box-shadow: 0 12px 48px rgba(10, 37, 64, 0.15);
+}
+
+.about-bio h2 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
+.about-bio p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #374151;
+  margin-bottom: 18px;
+}
+
+/* Career Timeline */
+.timeline-item {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 24px;
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 4px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.timeline-item .year {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.timeline-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+}
+
+.timeline-item p {
+  font-size: 0.9rem;
+  color: #5a6a7e;
+  line-height: 1.6;
+}
