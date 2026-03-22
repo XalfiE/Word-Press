@@ -198,3 +198,67 @@ h1, h2, h3, h4, h5, h6 {
   color: #5a6a7e;
   line-height: 1.6;
 }
+
+/* ============================================================
+   Recognitions & Awards Section
+   ============================================================ */
+
+.recognitions-section {
+  background-color: #ffffff;
+  padding: 80px 0;
+}
+
+.recognitions-section h2 {
+  font-size: 1.875rem;
+  color: var(--color-primary);
+  margin-bottom: 48px;
+}
+
+.recognition-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e8edf3;
+}
+
+.recognition-item:last-child {
+  border-bottom: none;
+}
+
+.recognition-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(0, 194, 203, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+  font-size: 1.1rem;
+}
+
+.recognition-content h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.recognition-content p {
+  font-size: 0.875rem;
+  color: #5a6a7e;
+  margin-bottom: 6px;
+}
+
+.recognition-content a {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.recognition-content a:hover {
+  text-decoration: underline;
+}
