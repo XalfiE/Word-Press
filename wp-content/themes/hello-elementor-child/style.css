@@ -262,3 +262,118 @@ h1, h2, h3, h4, h5, h6 {
 .recognition-content a:hover {
   text-decoration: underline;
 }
+
+/* ============================================================
+   Blog Archive & Post Templates
+   ============================================================ */
+
+.blog-archive {
+  padding: 80px 0;
+  background-color: var(--color-neutral);
+}
+
+.post-card {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(10, 37, 64, 0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.post-card:hover {
+  box-shadow: 0 8px 28px rgba(10, 37, 64, 0.11);
+  transform: translateY(-2px);
+}
+
+.post-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.post-card-body {
+  padding: 24px;
+}
+
+.post-category-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.post-card-body h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.post-card-body p {
+  font-size: 0.875rem;
+  color: #5a6a7e;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.post-meta {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  display: flex;
+  gap: 12px;
+}
+
+/* Single Post */
+.single-post-content {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.single-post-content h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--color-primary);
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.single-post-content p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #374151;
+  margin-bottom: 24px;
+}
+
+.author-bio-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 28px;
+  background: var(--color-neutral);
+  border-radius: 8px;
+  margin-top: 48px;
+}
+
+.author-bio-block img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-bio-block h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 4px;
+}
+
+.author-bio-block p {
+  font-size: 0.8rem;
+  color: #5a6a7e;
+  margin-bottom: 0;
+}
