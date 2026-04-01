@@ -535,3 +535,84 @@ h1, h2, h3, h4, h5, h6 {
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 28px;
 }
+
+/* ============================================================
+   Responsive Overrides — Mobile Fixes
+   ============================================================ */
+
+@media (max-width: 767px) {
+  .hero-section {
+    min-height: 100svh;
+    padding: 48px 20px;
+    text-align: center;
+  }
+
+  .hero-headline {
+    font-size: 2rem;
+  }
+
+  .hero-subheadline {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  .services-strip {
+    padding: 56px 20px;
+  }
+
+  .service-card {
+    padding: 24px 20px;
+  }
+
+  .timeline-item {
+    padding-left: 18px;
+  }
+
+  .single-post-content {
+    padding: 48px 20px;
+  }
+
+  .wpforms-container {
+    max-width: 100%;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photo {
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-headline {
+    font-size: 1.75rem;
+  }
+
+  .recognitions-section h2,
+  .blog-archive h2 {
+    font-size: 1.5rem;
+  }
+
+  .post-card-body h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero-section {
+    padding: 64px 40px;
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
