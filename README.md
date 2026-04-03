@@ -11,3 +11,15 @@ Full redesign of John Kimani's cybersecurity consulting website using WordPress 
 ## Setup
 
 Documentation coming soon.
+
+---
+
+## Screenshots
+
+[Before/after screenshots coming soon]
+
+---
+
+## License
+
+MIT
