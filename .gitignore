@@ -1,14 +1,16 @@
-wp-config.php
-/wp-content/uploads/
-/wp-content/plugins/
-/wp-admin/
-/wp-includes/
-node_modules/
-.env
+# OS files
 .DS_Store
 Thumbs.db
-*.sql
-*.bak
+
+# Editor files
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
 *.log
-/wp-content/uploads/elementor/
-/wp-content/cache/
