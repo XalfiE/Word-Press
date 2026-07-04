@@ -1,0 +1,21 @@
+{
+  "name": "the-infosec",
+  "version": "1.0.0",
+  "description": "A professional cybersecurity consultancy website",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build needed'",
+    "test": "echo 'No tests configured'"
+  },
+  "keywords": [
+    "cybersecurity",
+    "infosec",
+    "consultancy"
+  ],
+  "author": "Alfie Njeru",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
