@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Huawei HG8245H Router "Privilege Escalation": Part I | Alfie Njeru</title>
+  <title>Huawei HG8245H Router &quot;Privilege Escalation&quot;: Part I | Alfie Njeru</title>
   <meta name="description" content="Exploring the Huawei HG8245H home router, from default credentials to privilege escalation and full configuration extraction." />
   <link rel="stylesheet" href="../css/style.css" />
 </head>
@@ -37,21 +37,77 @@
       <div class="article-header reveal">
         <div class="article-meta">
           <span class="article-date">March 2017</span>
+          <span style="color: var(--gray-400);">&#183;</span><span style="color: var(--gray-400);">3 min read</span>
         </div>
-        <h1>Huawei HG8245H Router "Privilege Escalation": Part I</h1>
+        <h1>Huawei HG8245H Router &quot;Privilege Escalation&quot;: Part I</h1>
+        
       </div>
       <div class="article-content reveal reveal-delay-1">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">Exploring the Huawei HG8245H home router, from default credentials to privilege escalation and full configuration extraction.</p>
-        
-        <div class="archive-notice" style="background: rgba(255,255,255,0.03); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 48px;">
-          <h3 style="margin-top: 0;">Archive Notice</h3>
-          <p>This article was originally published on the legacy WordPress blog. The content is currently preserved in archive format.</p>
-          <p>You can view the original snapshot, complete with any images and comments, on the Wayback Machine:</p>
-          <a href="https://web.archive.org/web/2024/https://the-infosec.com/2017/03/20/huawei-hg8245h-router-privilege-escalatio/" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; margin-top: 16px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 20px; height: 20px; margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-            View Full Archive
-          </a>
+
+        <p><span style="color:#008080;"><em>This is a prequel to this <a href="https://the-infosec.com/2017/03/23/should-we-be-worried-huawei-router-part-ii/" style="color:#008080;">post here</a></em></span></p>
+
+        <p>Well, I got to play around with my router a few weeks ago. My router, a Huawei HG8245H version, is pretty decent for home use.</p>
+
+        <p>First things first, the login password is smack on the bottom of router as below.</p>
+
+        <figure><img src="https://web.archive.org/web/20250823035153im_/https://the-infosec.com/wp-content/uploads/2017/03/routerpic.jpg?w=750" alt="routerpic" loading="lazy" /></figure>
+
+        <p>Most routers have a well known default password, infact there are multiple sites dedicated to document <a href="https://web.archive.org/web/20250823035153/http://www.routerpasswords.com/" target="_blank">that</a>. So I got curious to know what info I could get using these credentials.</p>
+
+        <p>A quick google search says that the user root/admin is a normal user with the telecomadmin/admintelecom being the super user. Funny enough, I was unable to log in using the admintelecom/telecomadmin set of credentials. The superuser account allows a user to<span style="font-weight:400;"> have access to other options, notably backup configuration settings, edit and load router config file etc. </span></p>
+
+        <p><span style="font-weight:400;">An explanation I got as to why this is the case is because as soon as the router gets connected to ISP WAN it grabs configuration from ISP and this particular set of admin credentials don’t work. So how do we bypass this?</span></p>
+
+        <p><strong><em>Proof of concept:</em></strong></p>
+
+        <ol>
+          <li>Enter web interface (http://192.168.100.1) using root/admin credentials</li>
+          <li>Reboot the router.</li>
+          <li>Disconnect fibre cable as it restarts</li>
+          <li>As it restarts, try to log in onhttp://192.168.100.1as telecomadmin/admintelecom</li>
+        </ol>
+
+        <p><span style="font-weight:400;">Voila! You are in, as superadmin, with more options</span><span style="font-weight:400;"> to tweak the router 😀</span></p>
+
+        <figure><img src="https://web.archive.org/web/20250823035153im_/https://the-infosec.com/wp-content/uploads/2017/03/telecomadmin-login1.png?w=750" alt="telecomadmin login" loading="lazy" /></figure>
+
+        <p><span style="font-weight:400;">        5. To elevate your normal user root to superadmin status. Download router config file           from System Tools &gt; Configuration File.. This  file named “hw_ctree.xml” is                             encrypted and appears as below:</span></p>
+
+        <figure><img src="https://web.archive.org/web/20250823035153im_/https://the-infosec.com/wp-content/uploads/2017/03/encrypte.png?w=750" alt="encrypte" loading="lazy" /></figure>
+
+        <p>Fortunately, we can decrypt the router config file using any aes decryption tool.</p>
+
+        <p>6. Proceed to decrypt as below:</p>
+
+        <figure><img src="https://web.archive.org/web/20250823035153im_/https://the-infosec.com/wp-content/uploads/2017/03/ddecrypt.png?w=750" alt="ddecrypt" loading="lazy" /></figure>
+
+        <p>and here we have our plaintext config file:</p>
+
+        <figure><img src="https://web.archive.org/web/20250823035153im_/https://the-infosec.com/wp-content/uploads/2017/03/interesting-users.png?w=1879&amp;h=210" alt="interesting users" loading="lazy" /></figure>
+
+        <p><span style="font-weight:400;">For this post, our area of concern would be the part highlighted below:</span></p>
+
+        <figure><img src="https://web.archive.org/web/20250823035153im_/https://the-infosec.com/wp-content/uploads/2017/03/2more-users.png?w=750" alt="2more users" loading="lazy" /></figure>
+
+        <p><span style="font-weight:400;">Notice the different userlevels for the two users (root and telecomadmin), 0 and 1. Now we know userlevel 0 is superadministrator. </span></p>
+
+        <p><span style="font-weight:400;">        7. Edit the root user line to userlevel 0. Save file and decrypt it</span></p>
+
+        <p><span style="font-weight:400;">        8. Log in to our web interface, upload the new config file and restart router.</span></p>
+
+        <p><span style="font-weight:400;">       9.Once restarted, log in as root/admin, and enjoy the new options available  🙂</span></p>
+
+        <p>I called up Huawei to notify them of this and after a rather lengthy discussion they finally emailed me: <span style="color:#3366ff;"><em>“We will not track this issue as a vulnerability. If you still have some different option please never hesitate to contact us. </em></span><span style="color:#3366ff;"><em>Thanks again for your concern about the security problems of Huawei products. If you ever find any potential security issues in Huawei products in the future, we are looking forward to working with you again.”</em></span></p>
+
+        <p>I would,however like to thank Huawei’s quick response and follow up on their part. Many security researchers would have however have wished that we would fix this issue as we all know how attacks like DDOS are being <a href="https://web.archive.org/web/20250823035153/https://blog.sucuri.net/2016/09/iot-home-router-botnet-leveraged-in-large-ddos-attack.html" target="_blank">propagated</a> using default credentials in routers or other IOT devices.</p>
+
+        <p>Find Part II <a href="https://the-infosec.com/2017/03/23/should-we-be-worried-huawei-router-part-ii/">here</a></p>
+
+        <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
+          Originally published on <a href="https://the-infosec.com/2017/03/20/huawei-hg8245h-router-privilege-escalatio/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
         </div>
+
       </div>
       <div class="article-nav reveal reveal-delay-2">
         <a href="../index.html#blog" class="back-to-blog">
@@ -84,7 +140,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Alfie Njeru | the-infosec.com · Securing Digital Solutions</p>
+        <p>&copy; 2026 Alfie Njeru | the-infosec.com &middot; Securing Digital Solutions</p>
       </div>
     </div>
   </footer>

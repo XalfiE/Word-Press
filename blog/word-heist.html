@@ -37,21 +37,65 @@
       <div class="article-header reveal">
         <div class="article-meta">
           <span class="article-date">April 2017</span>
+          <span style="color: var(--gray-400);">&#183;</span><span style="color: var(--gray-400);">2 min read</span>
         </div>
         <h1>Word Heist!</h1>
+        
       </div>
       <div class="article-content reveal reveal-delay-1">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">Leveraging MS Word documents for social engineering, capturing NTLM hashes without macros using a clever spear-phishing technique.</p>
-        
-        <div class="archive-notice" style="background: rgba(255,255,255,0.03); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 48px;">
-          <h3 style="margin-top: 0;">Archive Notice</h3>
-          <p>This article was originally published on the legacy WordPress blog. The content is currently preserved in archive format.</p>
-          <p>You can view the original snapshot, complete with any images and comments, on the Wayback Machine:</p>
-          <a href="https://web.archive.org/web/2024/https://the-infosec.com/2017/04/04/word-heist/" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; margin-top: 16px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 20px; height: 20px; margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-            View Full Archive
-          </a>
+
+        <p>So, I stumbled upon an interesting script.</p>
+
+        <p>Over the years, I have been using various tools and scripts to do spear phishing; with the many vulnerabilities in Microsoft Office Suite and Adobe PDF reader being enablers and the ability to embed macros being an even bigger enabler. But things have changed and users are now keen on the “enable macro warning” and they don’t enable macros anymore 😦</p>
+
+        <figure><img src="https://web.archive.org/web/20230401165515im_/https://theinfoseccom.files.wordpress.com/2017/04/macros-warning.png?w=750" alt="macros warning" loading="lazy" /></figure>
+
+        <p>…hence most spear phishing attempts fail or are filtered by mail filters, firewalls, IPSs as they are deemed suspicious.</p>
+
+        <p>So <a href="https://web.archive.org/web/20230401165515/https://github.com/0x090x0/WordSteal/blob/master/main.py" target="_blank">this </a>was a breath of fresh air and seems to get through most IPSs and security devices.</p>
+
+        <p><strong>On your listening server:</strong></p>
+
+        <p>Download the <a href="https://web.archive.org/web/20230401165515/https://github.com/0x090x0/WordSteal/blob/master/main.py">script</a>. Put an image of your choice in the folder. I chose elephant.jpg</p>
+
+        <p>Start script as below. For this we want to set this server as a listening server hence the <strong>1</strong> after the image. Setting to 0 will not run the listener.</p>
+
+        <figure><img src="https://web.archive.org/web/20230401165515im_/https://theinfoseccom.files.wordpress.com/2017/04/script-start.png?w=750" alt="script start" loading="lazy" /></figure>
+
+        <p>The script is mostly automated and the only <del>hard</del> work is to send the file. Notice below that an *.rtf file (<em>1491333207.rtf</em>) has been generated from the *.jpg (<em>elephant.jpg</em>) image.</p>
+
+        <figure><img src="https://web.archive.org/web/20230401165515im_/https://theinfoseccom.files.wordpress.com/2017/04/file-created.png?w=750" alt="file created" loading="lazy" /></figure>
+
+        <p>This is what we need to send to our victim, and when we need to get really creative..</p>
+
+        <p><strong>After sending the *.rtf document to victim:</strong></p>
+
+        <p>Wait for victim to open the document, and immediately you notice NTLM hashes being populated on the listening server terminal. At the same time a file, <strong>passwords_netntlmv2, </strong>which contains NTLMv2 hashes<strong> </strong>is created. Which brings us to the last step – cracking the hashes..</p>
+
+        <figure><img src="https://web.archive.org/web/20230401165515im_/https://theinfoseccom.files.wordpress.com/2017/04/password-hashes.png?w=750" alt="password hashes" loading="lazy" /></figure>
+
+        <p><strong>Password cracking</strong></p>
+
+        <p>There are many tools to do this, but john the ripper is recommended for various reasons. I used JTR for this illustration as below:</p>
+
+        <figure><img src="https://web.archive.org/web/20230401165515im_/https://theinfoseccom.files.wordpress.com/2017/04/username-and-password.png?w=750" alt="username and password" loading="lazy" /></figure>
+
+        <p>And voila, passwords of the victim!</p>
+
+        <p><strong>Note:</strong> it would have definitely taken a longer time depending on the complexity of the password and wordlist used.</p>
+
+        <p>From a blue teamers point of view:</p>
+
+        <ul>
+          <li>We see the need for a strong password which should meet password complexity requirements</li>
+          <li>The back connection via port 445 is common especially for meterpreter sessions and this would point, though not necessarily, to an indicator of compromise.</li>
+        </ul>
+
+        <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
+          Originally published on <a href="https://the-infosec.com/2017/04/04/word-heist/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
         </div>
+
       </div>
       <div class="article-nav reveal reveal-delay-2">
         <a href="../index.html#blog" class="back-to-blog">
@@ -84,7 +128,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Alfie Njeru | the-infosec.com · Securing Digital Solutions</p>
+        <p>&copy; 2026 Alfie Njeru | the-infosec.com &middot; Securing Digital Solutions</p>
       </div>
     </div>
   </footer>

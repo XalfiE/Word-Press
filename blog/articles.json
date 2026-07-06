@@ -1,0 +1,1673 @@
+[
+  {
+    "slug": "password-complexity-reuse-audit-tool",
+    "title": "Password Complexity & Reuse Audit Tool",
+    "date": "October 2025",
+    "description": "A deep dive into auditing cracked credentials for password strength, complexity patterns, and reuse detection across enterprise environments.",
+    "archive_url": "https://web.archive.org/web/2025/https://the-infosec.com/2025/10/30/password-complexity-reuse-audit-tool/",
+    "tags": [],
+    "content": []
+  },
+  {
+    "slug": "automating-cisco-configuration-audits",
+    "title": "Automating Cisco Configuration Audits",
+    "date": "March 2025",
+    "description": "Strengthen your Cisco network by automating configuration audits with ease. A practical guide to security compliance checking.",
+    "archive_url": "https://web.archive.org/web/2025/https://the-infosec.com/2025/03/14/strengthen-your-cisco-network-automating-configuration-audits-with-ease/",
+    "tags": [],
+    "content": []
+  },
+  {
+    "slug": "fortigate-configuration-audit-tool",
+    "title": "FortiGate Configuration Files Audit Tool (FCFAT)",
+    "date": "March 2025",
+    "description": "Enhancing firewall security with automated analysis of FortiGate configuration files for misconfigurations and compliance gaps.",
+    "archive_url": "https://web.archive.org/web/2025/https://the-infosec.com/2025/03/14/fortigate-configuration-files-audit-tool-fcfat-enhancing-firewall-security-with-automated-analysis/",
+    "tags": [],
+    "content": [
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Introduction"
+      },
+      {
+        "type": "paragraph",
+        "text": "Conducting regular audits of firewall configurations is essential for ensuring compliance, identifying potential security gaps, and maintaining optimal performance. This is where theFortiGate Configuration Files Audit Tool(fcfat) comes into play.",
+        "html": "Conducting regular audits of firewall configurations is essential for ensuring compliance, identifying potential security gaps, and maintaining optimal performance. This is where the <strong>FortiGate Configuration Files Audit Tool</strong> (fcfat) comes into play."
+      },
+      {
+        "type": "paragraph",
+        "text": "Developed to streamline the auditing process forFortinet FortiGate firewalls, this tool provides an automated way to analyze configuration files, detect misconfigurations, and generate actionable insights. In this blog post, we’ll explore the tool’s features, how it works, and how security teams can leverage it for effective firewall management.",
+        "html": "Developed to streamline the auditing process for <strong>Fortinet FortiGate firewalls</strong>, this tool provides an automated way to analyze configuration files, detect misconfigurations, and generate actionable insights. In this blog post, we’ll explore the tool’s features, how it works, and how security teams can leverage it for effective firewall management."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Why Audit FortiGate Firewall Configurations?"
+      },
+      {
+        "type": "paragraph",
+        "text": "Firewalls are complex systems with numerous rules, policies, and settings that can be difficult to manage manually. Common issues that arise due to misconfigurations include:",
+        "html": "Firewalls are complex systems with numerous rules, policies, and settings that can be difficult to manage manually. Common issues that arise due to misconfigurations include:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Overly permissive rulesthat expose the network to unnecessary risks.",
+          "Unused or redundant policiesthat clutter configurations and reduce efficiency.",
+          "Non-compliant settingsthat violate security best practices or regulatory requirements.",
+          "Improper NAT and routing configurationsthat may disrupt network traffic."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Manual audits are time-consuming and prone to human error. Automating the auditing process helps organizations proactively secure their networks and meet compliance standards.",
+        "html": "Manual audits are time-consuming and prone to human error. Automating the auditing process helps organizations proactively secure their networks and meet compliance standards."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Features of the FortiGate Configuration Files Audit Tool"
+      },
+      {
+        "type": "paragraph",
+        "text": "This open-source tool simplifies the firewall auditing process by offering the following capabilities:",
+        "html": "This open-source tool simplifies the firewall auditing process by offering the following capabilities:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Automated Configuration Analysis: Parses FortiGate configuration files and scans for security issues.",
+          "Rule and Policy Validation: Identifies redundant, conflicting, or overly permissive rules.",
+          "Security Best Practices Compliance: Ensures the configuration aligns with industry standards such asCIS benchmarks",
+          "Detailed Reporting: Generates reports highlighting critical findings and recommendations.",
+          "User-Friendly Interface: Provides a graphical and command-line interface for ease of use.",
+          "Standalone Executable: No need for additional dependencies or installations.",
+          "How the Tool Works",
+          "TheFortiGate Configuration Files Audit Toolis a Windows-based executable that processes configuration files exported from FortiGate firewalls. Below is a step-by-step guide on how to use it:",
+          "1. Download and Install",
+          "To get started, download the latest version of the tool from theGitHub repository"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "How the Tool Works"
+      },
+      {
+        "type": "paragraph",
+        "text": "TheFortiGate Configuration Files Audit Toolis a Windows-based executable that processes configuration files exported from FortiGate firewalls. Below is a step-by-step guide on how to use it:",
+        "html": "The <strong>FortiGate Configuration Files Audit Tool</strong> is a Windows-based executable that processes configuration files exported from FortiGate firewalls. Below is a step-by-step guide on how to use it:"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "1. Download and Install"
+      },
+      {
+        "type": "paragraph",
+        "text": "To get started, download the latest version of the tool from theGitHub repository",
+        "html": "To get started, download the latest version of the tool from the <a href=\"https://web.archive.org/web/20251006062359/https://github.com/XalfiE/Fortigate-Configuration-Files-Audit-Tool\"><strong>GitHub repository</strong></a>"
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Benefits of Using This Tool"
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "✅ Increased Security"
+      },
+      {
+        "type": "paragraph",
+        "text": "By detecting misconfigurations and weak security settings, the tool helps strengthen firewall defenses against potential threats.",
+        "html": "By detecting misconfigurations and weak security settings, the tool helps strengthen firewall defenses against potential threats."
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "⏳ Time Efficiency"
+      },
+      {
+        "type": "paragraph",
+        "text": "Automating the audit process reduces the time required to review configurations manually.",
+        "html": "Automating the audit process reduces the time required to review configurations manually."
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "📊 Improved Compliance"
+      },
+      {
+        "type": "paragraph",
+        "text": "Ensures adherence to security frameworks such asISO 27001, NIST, and PCI DSS.",
+        "html": "Ensures adherence to security frameworks such as <strong>ISO 27001, NIST, and PCI DSS</strong>."
+      },
+      {
+        "type": "heading",
+        "level": 3,
+        "text": "🛠 Actionable Insights"
+      },
+      {
+        "type": "paragraph",
+        "text": "Provides clear and actionable recommendations to improve firewall configurations.",
+        "html": "Provides clear and actionable recommendations to improve firewall configurations."
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Future Enhancements"
+      },
+      {
+        "type": "paragraph",
+        "text": "The tool is actively evolving, and future updates may include:",
+        "html": "The tool is actively evolving, and future updates may include:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Integration with SIEM solutionsfor continuous monitoring.",
+          "Support for API-based auditsto analyze live configurations.",
+          "Enhanced visualization of security gapsthrough dashboards and graphs."
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "text": "Conclusion"
+      },
+      {
+        "type": "paragraph",
+        "text": "TheFortiGate Configuration Files Audit Toolis a powerful solution for automating firewall audits and ensuring that security policies remain robust and compliant. By leveraging this tool, IT security teams can proactively identify misconfigurations, enforce best practices, and enhance overall network security.",
+        "html": "The <strong>FortiGate Configuration Files Audit Tool</strong> is a powerful solution for automating firewall audits and ensuring that security policies remain robust and compliant. By leveraging this tool, IT security teams can proactively identify misconfigurations, enforce best practices, and enhance overall network security."
+      },
+      {
+        "type": "paragraph",
+        "text": "👉Get Started Now: Download the tool fromGitHuband start auditing your FortiGate firewalls today!",
+        "html": "👉 <strong>Get Started Now</strong>: Download the tool from <a href=\"https://web.archive.org/web/20251006062359/https://github.com/XalfiE/Fortigate-Configuration-Files-Audit-Tool\">GitHub</a> and start auditing your FortiGate firewalls today!"
+      },
+      {
+        "type": "paragraph",
+        "text": "Have feedback or feature suggestions? Contribute to the project on GitHub or share your insights in the comments below!",
+        "html": "Have feedback or feature suggestions? Contribute to the project on GitHub or share your insights in the comments below!"
+      }
+    ]
+  },
+  {
+    "slug": "oracle-ebs-security-auditing",
+    "title": "Oracle EBS Security Auditing",
+    "date": "November 2018",
+    "description": "An in-depth approach to auditing Oracle E-Business Suite, covering default credentials, weak passwords, application-level tests and database security controls.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2018/11/06/oracle-ebs-security-auditing/",
+    "tags": [],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "So this is my attempt to improve on thispostI wrote last year and other tests that I find helpful. Whatever is outlined here really is a tip of the iceberg and further tests should definitely be done depending on scope, objectives…",
+        "html": "So this is my attempt to improve on this <a href=\"https://web.archive.org/web/20250330183245/https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/\">post</a> I wrote last year and other tests that I find helpful. Whatever is outlined here really is a tip of the iceberg and further tests should definitely be done depending on scope, objectives…"
+      },
+      {
+        "type": "paragraph",
+        "text": "Application testing:",
+        "html": "<strong>Application testing:</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Controls to test:",
+        "html": "Controls to test:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Default application account credentials",
+          "Weak application password controls",
+          "Poor patching policies",
+          "Directory listing / sensitive information exposure",
+          "Segregation of duties / roles and responsibilities",
+          "Etc"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Default application account credentials:",
+        "html": "<em><strong>Default application account credentials:</strong></em>"
+      },
+      {
+        "type": "paragraph",
+        "text": "I have created a list of common default accounts on the application and uploaded ongithub, feel free to add to the list / ping me ontwitter. TBH, this issue is quite common among most instances I have the pleasure of auditing and mostly gives you system administrator privileges on the portal.",
+        "html": "I have created a list of common default accounts on the application and uploaded on <a href=\"https://web.archive.org/web/20250330183245/https://github.com/XalfiE/Oracle-EBS-Security-Audit\">github</a>, feel free to add to the list / ping me on <a href=\"https://web.archive.org/web/20250330183245/https://twitter.com/emenalf\">twitter</a>. TBH, this issue is quite common among most instances I have the pleasure of auditing and mostly gives you system administrator privileges on the portal."
+      },
+      {
+        "type": "paragraph",
+        "text": "Other tests to perform on the application to perhaps gain access arehere.",
+        "html": "Other tests to perform on the application to perhaps gain access are <a href=\"https://web.archive.org/web/20250330183245/https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/\">here</a>."
+      },
+      {
+        "type": "paragraph",
+        "text": "Solution:disable the default app accounts;",
+        "html": "<strong>Solution: </strong> disable the default app accounts;"
+      },
+      {
+        "type": "paragraph",
+        "text": "Weak application password controls",
+        "html": "<em><strong>Weak application password controls</strong></em>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Over and above the normal password complexity settings on the application, I found that if the passwords are not hashed and you have theAPPS password, one could decrypt ALL the application user passwords!!",
+        "html": "Over and above the normal password complexity settings on the application, I found that if the passwords are not hashed and you have the <a href=\"https://web.archive.org/web/20250330183245/https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/\">APPS password</a>, one could decrypt ALL the application user passwords!!"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250330183245im_/https://the-infosec.com/wp-content/uploads/2018/11/no-hashed-e1541490051674.png?w=750",
+        "alt": "no hashed"
+      },
+      {
+        "type": "paragraph",
+        "text": "Lack of patching:",
+        "html": "<strong><em>Lack of patching:</em></strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Simple select statement to view patch levels:",
+        "html": "Simple select statement to view patch levels:"
+      },
+      {
+        "type": "paragraph",
+        "text": "SELECTpatch_name, patch_type, maint_pack_level, creation_dateFROM applsys.ad_applied_patchesORDER BY creation_date DESC",
+        "html": "SELECT<br/>\npatch_name<br/>\n, patch_type<br/>\n, maint_pack_level<br/>\n, creation_date<br/>\nFROM applsys.ad_applied_patches<br/>\nORDER BY creation_date DESC"
+      },
+      {
+        "type": "paragraph",
+        "text": "Lack of patching on the app leads to many  OWASP Top 10 vulnerabilities including but not limited to XSS, SQLis – most discovered by the guys below. A common example is the reflected XSS on the jtfLOVInProcess.jsp. Many other jsps on the EBS suffer from these issues. These include: ibeCZzpEntry.jsp, cskmrelstmts.jsp, cskmslctcat.jsp, cskmslctplat.jsp, csm5Sync.jsp, ibeCScdAgrmntDetail.jsp, ibutpqs.jsp, ieccaleassignexception.jsp and ieccaleexception.jsp",
+        "html": "Lack of patching on the app leads to many  OWASP Top 10 vulnerabilities including but not limited to XSS, SQLis – most discovered by the guys below. A common example is the reflected XSS on the jtfLOVInProcess.jsp. Many other jsps on the EBS suffer from these issues. These include: ibeCZzpEntry.jsp, cskmrelstmts.jsp, cskmslctcat.jsp, cskmslctplat.jsp, csm5Sync.jsp, ibeCScdAgrmntDetail.jsp, ibutpqs.jsp, ieccaleassignexception.jsp and ieccaleexception.jsp"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250330183245im_/https://the-infosec.com/wp-content/uploads/2018/11/xss.png?w=750",
+        "alt": "XSS"
+      },
+      {
+        "type": "paragraph",
+        "text": "Solution:Patch. Patch. Patch.",
+        "html": "<strong>Solution:</strong> Patch. Patch. Patch."
+      },
+      {
+        "type": "paragraph",
+        "text": "Directory listing / sensitive information exposure",
+        "html": "<em><strong>Directory listing / sensitive information exposure</strong></em>"
+      },
+      {
+        "type": "paragraph",
+        "text": "See posthere",
+        "html": "See post <a href=\"https://web.archive.org/web/20250330183245/https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/\">here</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Solution:Reduce the attack surface by removing the JSPs not in use.",
+        "html": "<strong>Solution: </strong>Reduce the attack surface by removing the JSPs not in use."
+      },
+      {
+        "type": "paragraph",
+        "text": "Big shoutout to the guys below for being ready to help the community in the ERP space:",
+        "html": "Big shoutout to the guys below for being ready to help the community in the ERP space:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "David Litchfield",
+          "Integrigy",
+          "Onapsis"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "< Post in progress/>",
+        "html": "&lt; Post in progress/&gt;"
+      }
+    ]
+  },
+  {
+    "slug": "from-shodan-to-rce-3-belkin-routers",
+    "title": "From Shodan to RCE #3: Hacking the Belkin N600DB Wireless Router",
+    "date": "January 2018",
+    "description": "The third instalment of the Shodan to RCE series, discovering and exploiting vulnerabilities in Belkin routers found exposed on the internet.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2018/01/18/from-shodan-to-rce-3-hacking-belkin-routers/",
+    "tags": [],
+    "content": []
+  },
+  {
+    "slug": "blackhat-europe-2017-conference-notes",
+    "title": "Blackhat Europe 2017 – Conference Notes",
+    "date": "December 2017",
+    "description": "Key takeaways from Blackhat Europe 2017 in London, with links to slide decks, videos, and tools from briefings and demonstrations.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2017/12/29/blackhat-europe-2017-conference-notes/",
+    "tags": [],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "I had the pleasure to attend theBlackhat Europe 2017in London – and it was enlightening! In this post, I shall provide links to the slide decks, videos and tools shared during the demonstrations, briefings and various talks. The abstracts for the briefings can be found on the official Blackhat Europe website.",
+        "html": "I had the pleasure to attend the <a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/eu-17/\">Blackhat Europe 2017</a> in London – and it was enlightening! In this post, I shall provide links to the slide decks, videos and tools shared during the demonstrations, briefings and various talks. The abstracts for the briefings can be found on the official Blackhat Europe website."
+      },
+      {
+        "type": "paragraph",
+        "text": "1.Black Hat Europe 2017 youtube playlist (continuously being updated):",
+        "html": "<strong>1.Black Hat Europe 2017 youtube playlist (continuously being updated):</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "2. Presentation slide decks:",
+        "html": "<strong>2. Presentation slide decks:</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "LOST IN TRANSACTION: PROCESS DOPPELGÄNGING:https://www.blackhat.com/docs/eu-17/materials/eu-17-Liberman-Lost-In-Transaction-Process-Doppelganging.pdf",
+        "html": "LOST IN TRANSACTION: PROCESS DOPPELGÄNGING:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Liberman-Lost-In-Transaction-Process-Doppelganging.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Liberman-Lost-In-Transaction-Process-Doppelganging.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "HOW TO HACK A TURNED-OFF COMPUTER, OR RUNNING UNSIGNED CODE IN INTEL MANAGEMENT ENGINE:https://www.blackhat.com/docs/eu-17/materials/eu-17-Goryachy-How-To-Hack-A-Turned-Off-Computer-Or-Running-Unsigned-Code-In-Intel-Management-Engine.pdf",
+        "html": "HOW TO HACK A TURNED-OFF COMPUTER, OR RUNNING UNSIGNED CODE IN INTEL MANAGEMENT ENGINE:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Goryachy-How-To-Hack-A-Turned-Off-Computer-Or-Running-Unsigned-Code-In-Intel-Management-Engine.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Goryachy-How-To-Hack-A-Turned-Off-Computer-Or-Running-Unsigned-Code-In-Intel-Management-Engine.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "EXPOSING HIDDEN EXPLOITABLE BEHAVIORS IN PROGRAMMING LANGUAGES USING DIFFERENTIAL FUZZING:https://www.blackhat.com/docs/eu-17/materials/eu-17-Arnaboldi-Exposing-Hidden-Exploitable-Behaviors-In-Programming-Languages-Using-Differential-Fuzzing-wp.pdf",
+        "html": "EXPOSING HIDDEN EXPLOITABLE BEHAVIORS IN PROGRAMMING LANGUAGES USING DIFFERENTIAL FUZZING:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Arnaboldi-Exposing-Hidden-Exploitable-Behaviors-In-Programming-Languages-Using-Differential-Fuzzing-wp.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Arnaboldi-Exposing-Hidden-Exploitable-Behaviors-In-Programming-Languages-Using-Differential-Fuzzing-wp.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "ATTACKING NEXTGEN ROAMING NETWORKS:https://www.blackhat.com/docs/eu-17/materials/eu-17-Schmidt-Attacking-Next-Gen-Roaming-Networks.pdf",
+        "html": "ATTACKING NEXTGEN ROAMING NETWORKS:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Schmidt-Attacking-Next-Gen-Roaming-Networks.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Schmidt-Attacking-Next-Gen-Roaming-Networks.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "BLUEBORNE – A NEW CLASS OF AIRBORNE ATTACKS THAT CAN REMOTELY COMPROMISE ANY LINUX/IOT DEVICE:https://www.blackhat.com/docs/eu-17/materials/eu-17-Seri-BlueBorne-A-New-Class-Of-Airborne-Attacks-Compromising-Any-Bluetooth-Enabled-Linux-IoT-Device.pdf",
+        "html": "BLUEBORNE – A NEW CLASS OF AIRBORNE ATTACKS THAT CAN REMOTELY COMPROMISE ANY LINUX/IOT DEVICE:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Seri-BlueBorne-A-New-Class-Of-Airborne-Attacks-Compromising-Any-Bluetooth-Enabled-Linux-IoT-Device.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Seri-BlueBorne-A-New-Class-Of-Airborne-Attacks-Compromising-Any-Bluetooth-Enabled-Linux-IoT-Device.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "NATION-STATE MONEYMULE’S HUNTING SEASON – APT ATTACKS TARGETING FINANCIAL INSTITUTIONS:https://www.blackhat.com/docs/eu-17/materials/eu-17-Shen-Nation-State%20Moneymules-Hunting-Season-APT-Attacks-Targeting-Financial-Institutions.pdf",
+        "html": "NATION-STATE MONEYMULE’S HUNTING SEASON – APT ATTACKS TARGETING FINANCIAL INSTITUTIONS:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Shen-Nation-State%20Moneymules-Hunting-Season-APT-Attacks-Targeting-Financial-Institutions.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Shen-Nation-State%20Moneymules-Hunting-Season-APT-Attacks-Targeting-Financial-Institutions.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "SECURITY THROUGH DISTRUSTING:https://www.blackhat.com/docs/eu-17/materials/eu-17-Rutkowska-Security-Through-Distrusting.pdf",
+        "html": "SECURITY THROUGH DISTRUSTING:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Rutkowska-Security-Through-Distrusting.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Rutkowska-Security-Through-Distrusting.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "EXFILTRATING RECONNAISSANCE DATA FROM AIR-GAPPED ICS/SCADA NETWORKS:https://www.blackhat.com/docs/eu-17/materials/eu-17-Atch-Exfiltrating-Reconnaissance-Data-From-Air-Gapped-Ics-Scada-Networks.pdf",
+        "html": "EXFILTRATING RECONNAISSANCE DATA FROM AIR-GAPPED ICS/SCADA NETWORKS:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Atch-Exfiltrating-Reconnaissance-Data-From-Air-Gapped-Ics-Scada-Networks.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Atch-Exfiltrating-Reconnaissance-Data-From-Air-Gapped-Ics-Scada-Networks.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "THE GREAT ESCAPES OF VMWARE: A RETROSPECTIVE CASE STUDY OF VMWARE G2H ESCAPE VULNERABILITIES:https://www.blackhat.com/docs/eu-17/materials/eu-17-Mandal-The-Great-Escapes-Of-Vmware-A-Retrospective-Case-Study-Of-Vmware-G2H-Escape-Vulnerabilities.pdfA PROCESS IS NO ONE: HUNTING FOR TOKEN MANIPULATION:https://www.blackhat.com/docs/eu-17/materials/eu-17-Atkinson-A-Process-Is-No-One-Hunting-For-Token-Manipulation.pdf",
+        "html": "THE GREAT ESCAPES OF VMWARE: A RETROSPECTIVE CASE STUDY OF VMWARE G2H ESCAPE VULNERABILITIES:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Mandal-The-Great-Escapes-Of-Vmware-A-Retrospective-Case-Study-Of-Vmware-G2H-Escape-Vulnerabilities.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Mandal-The-Great-Escapes-Of-Vmware-A-Retrospective-Case-Study-Of-Vmware-G2H-Escape-Vulnerabilities.pdf</a><br/>\nA PROCESS IS NO ONE: HUNTING FOR TOKEN MANIPULATION:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Atkinson-A-Process-Is-No-One-Hunting-For-Token-Manipulation.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Atkinson-A-Process-Is-No-One-Hunting-For-Token-Manipulation.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "A UNIVERSAL CONTROLLER TO TAKE OVER A Z-WAVE NETWORK:https://www.blackhat.com/docs/eu-17/materials/eu-17-Rouch-A-Universal-Controller-To-Take-Over-A-Z-Wave-Network.pdf",
+        "html": "A UNIVERSAL CONTROLLER TO TAKE OVER A Z-WAVE NETWORK:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Rouch-A-Universal-Controller-To-Take-Over-A-Z-Wave-Network.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Rouch-A-Universal-Controller-To-Take-Over-A-Z-Wave-Network.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "ATTACKS AGAINST GSMA’S M2M REMOTE PROVISIONING:https://www.blackhat.com/docs/eu-17/materials/eu-17-Meyer-Attacks-Against-GSMAS-M2M-Remote-Provisioning.pdf",
+        "html": "ATTACKS AGAINST GSMA’S M2M REMOTE PROVISIONING:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Meyer-Attacks-Against-GSMAS-M2M-Remote-Provisioning.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Meyer-Attacks-Against-GSMAS-M2M-Remote-Provisioning.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "AUTOMATIC DISCOVERY OF EVASION VULNERABILITIES USING TARGETED PROTOCOL FUZZING:https://www.blackhat.com/docs/eu-17/materials/eu-17-Levomaki-Automatic-Discovery-Of-Evasion-Vulnerabilities-Using-Targeted-Protocol-Fuzzing.pdfBECOMING YOU: A GLIMPSE INTO CREDENTIAL ABUSE:https://www.blackhat.com/docs/eu-17/materials/eu-17-Burney-Becoming-You-A-Glimpse-Into-Credential-Abuse.pdf",
+        "html": "AUTOMATIC DISCOVERY OF EVASION VULNERABILITIES USING TARGETED PROTOCOL FUZZING:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Levomaki-Automatic-Discovery-Of-Evasion-Vulnerabilities-Using-Targeted-Protocol-Fuzzing.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Levomaki-Automatic-Discovery-Of-Evasion-Vulnerabilities-Using-Targeted-Protocol-Fuzzing.pdf</a><br/>\nBECOMING YOU: A GLIMPSE INTO CREDENTIAL ABUSE:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Burney-Becoming-You-A-Glimpse-Into-Credential-Abuse.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Burney-Becoming-You-A-Glimpse-Into-Credential-Abuse.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "BREAKING BAD: STEALING PATIENT DATA THROUGH MEDICAL DEVICES:https://www.blackhat.com/docs/eu-17/materials/eu-17-Harit-Breaking-Bad-Stealing-Patient-Data-Through-Medical-Devices.pdf",
+        "html": "BREAKING BAD: STEALING PATIENT DATA THROUGH MEDICAL DEVICES:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Harit-Breaking-Bad-Stealing-Patient-Data-Through-Medical-Devices.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Harit-Breaking-Bad-Stealing-Patient-Data-Through-Medical-Devices.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "BREAKING OUT HSTS (AND HPKP) ON FIREFOX IE/EDGE AND (POSSIBLY) CHROME:https://www.blackhat.com/docs/eu-17/materials/eu-17-Berta-Breaking-Out-HSTS-And-HPKP-On-Firefox-IE-Edge-And-Possibly-Chrome.pdf",
+        "html": "BREAKING OUT HSTS (AND HPKP) ON FIREFOX IE/EDGE AND (POSSIBLY) CHROME:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Berta-Breaking-Out-HSTS-And-HPKP-On-Firefox-IE-Edge-And-Possibly-Chrome.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Berta-Breaking-Out-HSTS-And-HPKP-On-Firefox-IE-Edge-And-Possibly-Chrome.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "BY-DESIGN BACKDOORING OF ENCRYPTION SYSTEM – CAN WE TRUST FOREIGN ENCRYPTION ALGORITHMS:https://www.blackhat.com/docs/eu-17/materials/eu-17-Filiol-By-Design-Backdooring-Of-Encryption-System-Can-We-Trust-Foreign-Encryption-Algorithms.pdf",
+        "html": "BY-DESIGN BACKDOORING OF ENCRYPTION SYSTEM – CAN WE TRUST FOREIGN ENCRYPTION ALGORITHMS:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Filiol-By-Design-Backdooring-Of-Encryption-System-Can-We-Trust-Foreign-Encryption-Algorithms.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Filiol-By-Design-Backdooring-Of-Encryption-System-Can-We-Trust-Foreign-Encryption-Algorithms.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "CALDERA: AUTOMATING ADVERSARY EMULATION:https://www.blackhat.com/docs/eu-17/materials/eu-17-Miller-CALDERA-Automating-Adversary-Emulation.pdf",
+        "html": "CALDERA: AUTOMATING ADVERSARY EMULATION:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Miller-CALDERA-Automating-Adversary-Emulation.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Miller-CALDERA-Automating-Adversary-Emulation.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "CLKSCREW: EXPOSING THE PERILS OF SECURITY-OBLIVIOUS ENERGY MANAGEMENT:https://www.blackhat.com/docs/eu-17/materials/eu-17-Tang-Clkscrew-Exposing-The-Perils-Of-Security-Oblivious-Energy-Management.pdf",
+        "html": "CLKSCREW: EXPOSING THE PERILS OF SECURITY-OBLIVIOUS ENERGY MANAGEMENT:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Tang-Clkscrew-Exposing-The-Perils-Of-Security-Oblivious-Energy-Management.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Tang-Clkscrew-Exposing-The-Perils-Of-Security-Oblivious-Energy-Management.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "DEALING THE PERFECT HAND – SHUFFLING MEMORY BLOCKS ON Z/OS:https://www.blackhat.com/docs/eu-17/materials/eu-17-Elaassal-Dealing-The-Perfect-Hand-Shuffling-Memory-Blocks-On-ZOS.pdf",
+        "html": "DEALING THE PERFECT HAND – SHUFFLING MEMORY BLOCKS ON Z/OS:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Elaassal-Dealing-The-Perfect-Hand-Shuffling-Memory-Blocks-On-ZOS.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Elaassal-Dealing-The-Perfect-Hand-Shuffling-Memory-Blocks-On-ZOS.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "DIFUZZING ANDROID KERNEL DRIVERS:https://www.blackhat.com/docs/eu-17/materials/eu-17-Corina-Difuzzing-Android-Kernel-Drivers.pdf",
+        "html": "DIFUZZING ANDROID KERNEL DRIVERS:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Corina-Difuzzing-Android-Kernel-Drivers.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Corina-Difuzzing-Android-Kernel-Drivers.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "ENRAPTURED MINDS: STRATEGIC GAMING OF COGNITIVE MINDHACKShttps://www.blackhat.com/docs/eu-17/materials/eu-17-Kropotov-Enraptured-Minds-Strategic-Gaming-Of-Cognitive-Mindhacks.pdf",
+        "html": "ENRAPTURED MINDS: STRATEGIC GAMING OF COGNITIVE MINDHACKShttps://www.blackhat.com/docs/eu-17/materials/eu-17-Kropotov-Enraptured-Minds-Strategic-Gaming-Of-Cognitive-Mindhacks.pdf"
+      },
+      {
+        "type": "paragraph",
+        "text": "FED UP GETTING SHATTERED AND LOG JAMMED? A NEW GENERATION OF CRYPTO IS COMINGhttps://www.blackhat.com/docs/eu-17/materials/eu-17-Wong-Fed-Up-Getting-Shattered-And-Log-Jammed-A-New-Generation-Of-Crypto-Is-Coming.pdf",
+        "html": "FED UP GETTING SHATTERED AND LOG JAMMED? A NEW GENERATION OF CRYPTO IS COMINGhttps://www.blackhat.com/docs/eu-17/materials/eu-17-Wong-Fed-Up-Getting-Shattered-And-Log-Jammed-A-New-Generation-Of-Crypto-Is-Coming.pdf"
+      },
+      {
+        "type": "paragraph",
+        "text": "GDPR AND THIRD PARTY JS – CAN IT BE DONE?:https://www.blackhat.com/docs/eu-17/materials/eu-17-Grushcovski-GDPR-And-Third-Party-JS-Can-It-Be-Done.pdf",
+        "html": "GDPR AND THIRD PARTY JS – CAN IT BE DONE?:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Grushcovski-GDPR-And-Third-Party-JS-Can-It-Be-Done.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Grushcovski-GDPR-And-Third-Party-JS-Can-It-Be-Done.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "HEAP LAYOUT OPTIMISATION FOR EXPLOITATION:https://www.blackhat.com/docs/eu-17/materials/eu-17-Heelan-Heap-Layout-Optimisation-For-Exploitation.pdf",
+        "html": "HEAP LAYOUT OPTIMISATION FOR EXPLOITATION:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Heelan-Heap-Layout-Optimisation-For-Exploitation.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Heelan-Heap-Layout-Optimisation-For-Exploitation.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "HIDING PIN’S ARTIFACTS TO DEFEAT EVASIVE MALWARE:https://www.blackhat.com/docs/eu-17/materials/eu-17-Polino-Hiding-Pins-Artifacts-To-Defeat-Evasive-Malware.pdf",
+        "html": "HIDING PIN’S ARTIFACTS TO DEFEAT EVASIVE MALWARE:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Polino-Hiding-Pins-Artifacts-To-Defeat-Evasive-Malware.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Polino-Hiding-Pins-Artifacts-To-Defeat-Evasive-Malware.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "HOW SAMSUNG SECURES YOUR WALLET AND HOW TO BREAK IT:https://www.blackhat.com/docs/eu-17/materials/eu-17-Ma-How-Samsung-Secures-Your-Wallet-And-How-To-Break-It.pdf",
+        "html": "HOW SAMSUNG SECURES YOUR WALLET AND HOW TO BREAK IT:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Ma-How-Samsung-Secures-Your-Wallet-And-How-To-Break-It.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Ma-How-Samsung-Secures-Your-Wallet-And-How-To-Break-It.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "HOW TO ROB A BANK OVER THE PHONE – LESSONS LEARNED AND REAL AUDIO FROM AN ACTUAL SOCIAL ENGINEERING ENGAGEMENT:https://www.blackhat.com/docs/eu-17/materials/eu17-Crumbaugh-How-To-Rob-A-Bank-Over-The-Phone.pdf",
+        "html": "HOW TO ROB A BANK OVER THE PHONE – LESSONS LEARNED AND REAL AUDIO FROM AN ACTUAL SOCIAL ENGINEERING ENGAGEMENT:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu17-Crumbaugh-How-To-Rob-A-Bank-Over-The-Phone.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu17-Crumbaugh-How-To-Rob-A-Bank-Over-The-Phone.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "I TRUST MY ZOMBIES: A TRUST-ENABLED BOTNET:https://www.blackhat.com/docs/eu-17/materials/eu-17-Vasilomanolakis-I-Trust-My-Zombies-A-Trust-Enabled-Botnet.pdf",
+        "html": "I TRUST MY ZOMBIES: A TRUST-ENABLED BOTNET: <a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Vasilomanolakis-I-Trust-My-Zombies-A-Trust-Enabled-Botnet.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Vasilomanolakis-I-Trust-My-Zombies-A-Trust-Enabled-Botnet.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "INSIDE ANDROID’S SAFETYNET ATTESTATION:https://www.blackhat.com/docs/eu-17/materials/eu-17-Mulliner-Inside-Androids-SafetyNet-Attestation.pdf",
+        "html": "INSIDE ANDROID’S SAFETYNET ATTESTATION:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Mulliner-Inside-Androids-SafetyNet-Attestation.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Mulliner-Inside-Androids-SafetyNet-Attestation.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "INTEL ME: FLASH FILE SYSTEM EXPLAINED:https://www.blackhat.com/docs/eu-17/materials/eu-17-Sklyarov-Intel-ME-Flash-File-System-Explained.pdfJAILBREAKING APPLE WATCH:https://www.blackhat.com/docs/eu-17/materials/eu-17-Bazaliy-Jailbreaking-Apple-Watch.pdf",
+        "html": "INTEL ME: FLASH FILE SYSTEM EXPLAINED:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Sklyarov-Intel-ME-Flash-File-System-Explained.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Sklyarov-Intel-ME-Flash-File-System-Explained.pdf</a><br/>\nJAILBREAKING APPLE WATCH:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Bazaliy-Jailbreaking-Apple-Watch.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Bazaliy-Jailbreaking-Apple-Watch.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "KEY REINSTALLATION ATTACKS: BREAKING THE WPA2 PROTOCOL:https://www.blackhat.com/docs/eu-17/materials/eu-17-Vanhoef-Key-Reinstallation-Attacks-Breaking-The-WPA2-Protocol.pdf",
+        "html": "KEY REINSTALLATION ATTACKS: BREAKING THE WPA2 PROTOCOL:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Vanhoef-Key-Reinstallation-Attacks-Breaking-The-WPA2-Protocol.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Vanhoef-Key-Reinstallation-Attacks-Breaking-The-WPA2-Protocol.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "PASSIVE FINGERPRINTING OF HTTP/2 CLIENTS:https://www.blackhat.com/docs/eu-17/materials/eu-17-Shuster-Passive-Fingerprinting-Of-HTTP2-Clients.pdf",
+        "html": "PASSIVE FINGERPRINTING OF HTTP/2 CLIENTS:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Shuster-Passive-Fingerprinting-Of-HTTP2-Clients.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Shuster-Passive-Fingerprinting-Of-HTTP2-Clients.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "RED TEAM TECHNIQUES FOR EVADING BYPASSING AND DISABLING MS ADVANCED THREAT PROTECTION AND ADVANCED THREAT ANALYTICS:https://www.blackhat.com/docs/eu-17/materials/eu-17-Thompson-Red-Team-Techniques-For-Evading-Bypassing-And-Disabling-MS-Advanced-Threat-Protection-And-Advanced-Threat-Analytics.pdf",
+        "html": "RED TEAM TECHNIQUES FOR EVADING BYPASSING AND DISABLING MS ADVANCED THREAT PROTECTION AND ADVANCED THREAT ANALYTICS:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Thompson-Red-Team-Techniques-For-Evading-Bypassing-And-Disabling-MS-Advanced-Threat-Protection-And-Advanced-Threat-Analytics.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Thompson-Red-Team-Techniques-For-Evading-Bypassing-And-Disabling-MS-Advanced-Threat-Protection-And-Advanced-Threat-Analytics.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "RO(O)TTEN APPLES: VULNERABILITY HEAVEN IN THE IOS SANDBOX:https://www.blackhat.com/docs/eu-17/materials/eu-17-Donenfeld-Rooten-Apples-Vulnerability-Heaven-In-The-IOS-Sandbox.pdf",
+        "html": "RO(O)TTEN APPLES: VULNERABILITY HEAVEN IN THE IOS SANDBOX:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Donenfeld-Rooten-Apples-Vulnerability-Heaven-In-The-IOS-Sandbox.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Donenfeld-Rooten-Apples-Vulnerability-Heaven-In-The-IOS-Sandbox.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "SELF-VERIFYING AUTHENTICATION – A FRAMEWORK FOR SAFER INTEGRATIONS OF SINGLE-SIGN-ON SERVICES:https://www.blackhat.com/docs/eu-17/materials/eu-17-Chen-Self-Verifying-Authentication-A-Framework-For-Safer-Integrations-Of-Single-Sign-On-Services.pdf",
+        "html": "SELF-VERIFYING AUTHENTICATION – A FRAMEWORK FOR SAFER INTEGRATIONS OF SINGLE-SIGN-ON SERVICES:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Chen-Self-Verifying-Authentication-A-Framework-For-Safer-Integrations-Of-Single-Sign-On-Services.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Chen-Self-Verifying-Authentication-A-Framework-For-Safer-Integrations-Of-Single-Sign-On-Services.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "THE APPLE OF YOUR EFI: AN UPDATED ANALYSIS OF THE STATE OF APPLE’S EFI SECURITY SUPPORT:https://www.blackhat.com/docs/eu-17/materials/eu-17-Smith-The-Apple-Of-Your-EFI-An-Updated-Analysis-Of-The-State-Of-Apples-EFI-Security-Support.pdf",
+        "html": "THE APPLE OF YOUR EFI: AN UPDATED ANALYSIS OF THE STATE OF APPLE’S EFI SECURITY SUPPORT:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Smith-The-Apple-Of-Your-EFI-An-Updated-Analysis-Of-The-State-Of-Apples-EFI-Security-Support.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Smith-The-Apple-Of-Your-EFI-An-Updated-Analysis-Of-The-State-Of-Apples-EFI-Security-Support.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "THE SPEAR TO BREAK THE SECURITY WALL OF S7COMMPLUS:https://www.blackhat.com/docs/eu-17/materials/eu-17-Lei-The-Spear-To-Break%20-The-Security-Wall-Of-S7CommPlus.pdf",
+        "html": "THE SPEAR TO BREAK THE SECURITY WALL OF S7COMMPLUS:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Lei-The-Spear-To-Break%20-The-Security-Wall-Of-S7CommPlus.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Lei-The-Spear-To-Break%20-The-Security-Wall-Of-S7CommPlus.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "WI-FI DIRECT TO HELL: ATTACKING WI-FI DIRECT PROTOCOL IMPLEMENTATIONS:https://www.blackhat.com/docs/eu-17/materials/eu-17-Blanco-WI-FI-Direct-To-Hell-Attacking-WI-FI-Direct-Protocol-Implementations.pdf",
+        "html": "WI-FI DIRECT TO HELL: ATTACKING WI-FI DIRECT PROTOCOL IMPLEMENTATIONS:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Blanco-WI-FI-Direct-To-Hell-Attacking-WI-FI-Direct-Protocol-Implementations.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Blanco-WI-FI-Direct-To-Hell-Attacking-WI-FI-Direct-Protocol-Implementations.pdf</a>"
+      },
+      {
+        "type": "paragraph",
+        "text": "ZERO DAYS THOUSANDS OF NIGHTS: THE LIFE AND TIMES OF ZERO-DAY VULNERABILITIES AND THEIR EXPLOITS:https://www.blackhat.com/docs/eu-17/materials/eu-17-Ablon-Zero-Days-Thousands-Of-Nights-The-Life-And-Times-Of-Zero-Day-Vulnerabilities-And-Their-Exploits.pdf",
+        "html": "ZERO DAYS THOUSANDS OF NIGHTS: THE LIFE AND TIMES OF ZERO-DAY VULNERABILITIES AND THEIR EXPLOITS:<a href=\"https://web.archive.org/web/20230615021829/https://www.blackhat.com/docs/eu-17/materials/eu-17-Ablon-Zero-Days-Thousands-Of-Nights-The-Life-And-Times-Of-Zero-Day-Vulnerabilities-And-Their-Exploits.pdf\" rel=\"nofollow\">https://www.blackhat.com/docs/eu-17/materials/eu-17-Ablon-Zero-Days-Thousands-Of-Nights-The-Life-And-Times-Of-Zero-Day-Vulnerabilities-And-Their-Exploits.pdf</a>"
+      }
+    ]
+  },
+  {
+    "slug": "from-shodan-to-rce-1-hacking-jenkins",
+    "title": "From Shodan to Remote Code Execution #1 – Hacking Jenkins",
+    "date": "June 2017",
+    "description": "Exploring how misconfigured Jenkins automation servers exposed on the internet can lead to full remote code execution.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2017/06/22/from-shodan-to-remote-code-execution-1-hacking-jenkins/",
+    "tags": [],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "In this era of extreme automation, whether for development, programming deployment or even security management are we getting closer to security maturity or are we better off without the automation?",
+        "html": "In this era of extreme automation, whether for development, programming deployment or even security management are we getting closer to security maturity or are we better off without the automation?"
+      },
+      {
+        "type": "paragraph",
+        "text": "In the next posts, I hope to uncover some of the tools/ applications employed on enterprises geared towards automation and better security but end up exposing and increasing surface area for attack. We start with Jenkins.",
+        "html": "In the next posts, I hope to uncover some of the tools/ applications employed on enterprises geared towards automation and better security but end up exposing and increasing surface area for attack. We start with Jenkins."
+      },
+      {
+        "type": "paragraph",
+        "text": "Jenkins  is an open source automation server written in Java. Jenkins helps to automate the non-human part of software development process, with continuous integration and facilitating technical aspects of continuous delivery. It is a server-based system that runs in servlet containers such as Apache Tomcat. It supports version control tools, including AccuRev, CVS, Subversion, Git, Mercurial, Perforce, ClearCase and RTC, and can execute Apache Ant, Apache Maven and sbt based projects as well as arbitrary shell scripts and Windows batch commands.",
+        "html": "Jenkins  is an open source automation server written in Java. Jenkins helps to automate the non-human part of software development process, with continuous integration and facilitating technical aspects of continuous delivery. It is a server-based system that runs in servlet containers such as Apache Tomcat. It supports version control tools, including AccuRev, CVS, Subversion, Git, Mercurial, Perforce, ClearCase and RTC, and can execute Apache Ant, Apache Maven and sbt based projects as well as arbitrary shell scripts and Windows batch commands."
+      },
+      {
+        "type": "paragraph",
+        "text": "It is used by several organizations globally and a quick Shodan search gives over 300,000 instances publicly accessible over the internet.",
+        "html": "It is used by several organizations globally and a quick Shodan search gives over 300,000 instances publicly accessible over the internet."
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230529060216im_/https://theinfoseccom.files.wordpress.com/2017/06/usage_.png?w=750",
+        "alt": "usage_"
+      },
+      {
+        "type": "paragraph",
+        "text": "We shift focus quickly to see if there are some portal instances on port 8081 and the figure goes down..",
+        "html": "We shift focus quickly to see if there are some portal instances on port 8081 and the figure goes down.."
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230529060216im_/https://theinfoseccom.files.wordpress.com/2017/06/8081.png?w=750",
+        "alt": "8081"
+      },
+      {
+        "type": "paragraph",
+        "text": "Of these, some require credentials…..and some don’t 🙂 …some even have theManage Jenkinsoption which simply means among other things we are a somewhat privileged user (eg jenkins user) and can install plugins of choice.",
+        "html": "Of these, some require credentials…..and some don’t 🙂 …some even have the <strong><span style=\"text-decoration:underline;\">Manage Jenkins</span> </strong>option which simply means among other things we are a somewhat privileged user (eg jenkins user) and can install plugins of choice."
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230529060216im_/https://theinfoseccom.files.wordpress.com/2017/06/good-dash_.png?w=750",
+        "alt": "good dash_"
+      },
+      {
+        "type": "paragraph",
+        "text": "Most people I know would opt to install terminal plugin..for obvious reasons..",
+        "html": "Most people I know would opt to install terminal plugin..for obvious reasons.."
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230529060216im_/https://theinfoseccom.files.wordpress.com/2017/06/manage-plugins_.png?w=750",
+        "alt": "manage plugins_"
+      },
+      {
+        "type": "paragraph",
+        "text": "Running some commands.. :-O",
+        "html": "Running some commands.. :-O"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230529060216im_/https://theinfoseccom.files.wordpress.com/2017/06/commands_.png?w=750",
+        "alt": "commands_"
+      },
+      {
+        "type": "paragraph",
+        "text": "Enough!",
+        "html": "Enough!"
+      }
+    ]
+  },
+  {
+    "slug": "samba-cve-2017-7494",
+    "title": "SAMBAry Save Us!! (CVE-2017-7494)",
+    "date": "May 2017",
+    "description": "Exploiting the Samba remote code execution vulnerability (CVE-2017-7494), where all versions from 3.5.0 onwards were vulnerable to a malicious shared library upload attack.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2017/05/26/samba-cve-2017-7494/",
+    "tags": [],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Remember linux users laughing at Windows users because of the now all too famous Wannacry? Karma.",
+        "html": "Remember linux users laughing at Windows users because of the now all too famous Wannacry? Karma."
+      },
+      {
+        "type": "paragraph",
+        "text": "According toSamba, “All versions of Samba from 3.5.0 onwards are vulnerable to a remote code execution vulnerability, allowing a malicious client to upload a shared library to a writable share, and then cause the server to load and execute it.” Might appear not to be serious,but a quick look at our beloved Shodan we see roughlyhalfa millioncompanies with publicly exposed samba (shares.) – not to say all are exploitable but narrowing down and just by viewing the versions, more than half are!!!",
+        "html": "According to <a href=\"https://web.archive.org/web/20230615022359/https://www.samba.org/samba/security/CVE-2017-7494.html\">Samba</a>, “All versions of Samba from 3.5.0 onwards are vulnerable to a remote code execution vulnerability, allowing a malicious client to upload a shared library to a writable share, and then cause the server to load and execute it.” Might appear not to be serious,but a quick look at our beloved Shodan we see roughly <strong>half</strong> <strong>a million</strong> companies with publicly exposed samba (shares.) – not to say all are exploitable but narrowing down and just by viewing the versions, more than half are!!!"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230615022359im_/https://theinfoseccom.files.wordpress.com/2017/05/shodan_.png?w=750",
+        "alt": "shodan_"
+      },
+      {
+        "type": "paragraph",
+        "text": "Exploitation:",
+        "html": "<strong>Exploitation:</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Various exploits have been released, I explored the exploit by HD Moore and it works pretty well; At the time of writing it had not been ported to metasploit, port it manually as below, fire up msf.",
+        "html": "Various exploits have been released, I explored the exploit by HD Moore and it works pretty well; At the time of writing it had not been ported to metasploit, port it manually as below, fire up msf."
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230615022359im_/https://theinfoseccom.files.wordpress.com/2017/05/exploit-msf_.png?w=750",
+        "alt": "exploit msf_"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230615022359im_/https://theinfoseccom.files.wordpress.com/2017/05/msf-exploit_.png?w=750",
+        "alt": "msf exploit_"
+      },
+      {
+        "type": "paragraph",
+        "text": "We would all appreciate a Check module in the msf exploit, since it is not there, I decided to do a manual grep – tedious if you a have a large estate to check but better safe than sorry.",
+        "html": "We would all appreciate a Check module in the msf exploit, since it is not there, I decided to do a manual grep – tedious if you a have a large estate to check but better safe than sorry."
+      },
+      {
+        "type": "paragraph",
+        "text": "How to check:",
+        "html": "<strong>How to check:</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Download either ofthese files, which show open ports 139 and 445 for public IPs globally as at May 24th and search for your IP of interest :-)..am sure programmers have an easier way?",
+        "html": "Download either of <a href=\"https://web.archive.org/web/20230615022359/https://drive.google.com/open?id=0B6ZFkPc775b9UU5iUEQyMG9leFU\">these files</a>, which show open ports 139 and 445 for public IPs globally as at May 24th and search for your IP of interest :-)..am sure programmers have an easier way?"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230615022359im_/https://theinfoseccom.files.wordpress.com/2017/05/grep_.png?w=750",
+        "alt": "grep_"
+      },
+      {
+        "type": "paragraph",
+        "text": "Remediation:",
+        "html": "<strong>Remediation:</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "As usual PATCH! Samba have already released apatchfor versions 4.4 onwards. There are workarounds for the other versions, though they could break functionality – the workaround is to add the parameter “nt pipe support = no” to the smb.conf global section and restart smbd service.",
+        "html": "As usual PATCH! Samba have already released a <a href=\"https://web.archive.org/web/20230615022359/https://www.samba.org/samba/history/security.html\">patch</a> for versions 4.4 onwards. There are workarounds for the other versions, though they could break functionality – the workaround is to add the parameter “nt pipe support = no” to the smb.conf global section and restart smbd service."
+      },
+      {
+        "type": "paragraph",
+        "text": "On a light note 😀",
+        "html": "<em>On a light note 😀</em>"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230615022359im_/https://theinfoseccom.files.wordpress.com/2017/05/whatsapp-image-2017-05-26-at-7-33-22-am.jpeg?w=750",
+        "alt": "WhatsApp Image 2017-05-26 at 7.33.22 AM"
+      },
+      {
+        "type": "paragraph",
+        "text": "Post title inspired by Remy Zero’sSave me…",
+        "html": "Post title inspired by Remy Zero’s <a href=\"https://web.archive.org/web/20230615022359/https://www.youtube.com/watch?v=LYdCzs5uPrI\">Save me</a>…"
+      }
+    ]
+  },
+  {
+    "slug": "from-shodan-to-rce-2-opendreambox",
+    "title": "From Shodan to RCE #2 – Hacking OpenDreambox 2.0.0",
+    "date": "May 2017",
+    "description": "The second part of the Shodan to RCE series, exploiting misconfigured Dreambox digital TV set-top boxes for remote code execution.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2017/05/12/from-shodan-to-rce-opendreambox-2-0-0-code-execution/",
+    "tags": [],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "A sequel to the lastpostof what is now becoming a series of “From Shodan to remote code execution”, we now take a look at how to hack misconfigured Dreambox installations. Dreambox is a company which offers Digital TV set top boxes and other related services.",
+        "html": "A sequel to the last <a href=\"https://web.archive.org/web/20250114042849/https://the-infosec.com/2017/06/22/hacking-jenkins/\">post</a> of what is now becoming a series of “From Shodan to remote code execution”, we now take a look at how to hack misconfigured Dreambox installations. Dreambox is a company which offers Digital TV set top boxes and other related services."
+      },
+      {
+        "type": "paragraph",
+        "text": "Shodan search:",
+        "html": "<em>Shodan search:</em>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Perform a shodan search as below:",
+        "html": "Perform a shodan search as below:"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250114042849im_/https://the-infosec.com/wp-content/uploads/2017/07/shodan-search_.png?w=750",
+        "alt": "shodan search_"
+      },
+      {
+        "type": "paragraph",
+        "text": "Go through the portals in the search results. The indicator of a vulnerable dreambox installation is the presence of webadmin plugin as below:",
+        "html": "Go through the portals in the search results. The indicator of a vulnerable dreambox installation is the presence of webadmin plugin as below:"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250114042849im_/https://the-infosec.com/wp-content/uploads/2017/07/webadmin-plugin_-e1499264379175.png?w=750",
+        "alt": "webadmin-plugin_.png"
+      },
+      {
+        "type": "paragraph",
+        "text": "From the address bar run linux commands using the syntax:http://IP/PORT/webadmin/script?command=|”linux_command” as shown below:",
+        "html": "From the address bar run linux commands using the syntax: <a href=\"https://web.archive.org/web/20250114042849/http://212.13.x.129:8081/webadmin/script?command=\">http://IP/PORT/webadmin/script?command=</a>|”linux_command” as shown below:"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250114042849im_/https://the-infosec.com/wp-content/uploads/2017/07/id-_.png?w=750",
+        "alt": "id _"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250114042849im_/https://the-infosec.com/wp-content/uploads/2017/07/etc-passwd_.png?w=750",
+        "alt": "etc passwd_"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250114042849im_/https://the-infosec.com/wp-content/uploads/2017/07/etc-shadow_.png?w=750",
+        "alt": "etc shadow_"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250114042849im_/https://the-infosec.com/wp-content/uploads/2017/07/whoami_.png?w=750",
+        "alt": "whoami_"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250114042849im_/https://the-infosec.com/wp-content/uploads/2017/07/cat-issue_.png?w=750",
+        "alt": "cat issue_"
+      },
+      {
+        "type": "paragraph",
+        "text": "Credits:Jonatas Fil,the discoverer of the vulnerability.",
+        "html": "Credits:  <a href=\"https://web.archive.org/web/20250114042849/https://github.com/ninj4c0d3r\">Jonatas Fil,</a> the discoverer of the vulnerability."
+      }
+    ]
+  },
+  {
+    "slug": "exploiting-windows-eternalblue-doublepulsar",
+    "title": "Exploiting Windows with Eternalblue & Doublepulsar with Metasploit",
+    "date": "May 2017",
+    "description": "Hands-on walkthrough of the NSA's EternalBlue and DoublePulsar exploits using Metasploit, the tools behind the WannaCry outbreak.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2017/05/01/exploiting-windows-with-eternalblue-and-doublepulsar-with-metasploit/",
+    "tags": [],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Most of us got hold of the NSA exploits recently released to the public and there was so much hype and public statements around it. A lot has been said, and most vendors came out to defend their products and to release patches to downplay/mitigate the impact of these exploits.",
+        "html": "Most of us got hold of the NSA exploits recently released to the public and there was so much hype and public statements around it. A lot has been said, and most vendors came out to defend their products and to release patches to downplay/mitigate the impact of these exploits."
+      },
+      {
+        "type": "paragraph",
+        "text": "In the exploits, we came to learn about Fuzzbunch, NSA’s exploit framework – “NSA’s metasploit”. I know a few people who have tried to use it and fail due to lack of knowledge/ familiarity with the dependencies that Fuzzbunch demands…fret no more. We can exploit the same vulnerabilities using our beloved Metasploit :-). Currently Metasploit has the MS17-010 SMB RCE Detection module which “uses information disclosure to determine if MS17-010 has been patched or not. Specifically, it connects to the IPC$ tree and attempts a transaction on FID 0. If the status returned is “STATUS_INSUFF_SERVER_RESOURCES”, the machine does not have the MS17-010 patch. If the machine is missing the MS17-010 patch, the module will check for an existing DoublePulsar (ring 0 shellcode/malware) infection. This module does not require valid SMB credentials in default server configurations. It can log on as the user “\\” and connect to IPC$.” It is a scanner module and just informs you that you need to patch your windows boxes – extremely useful for blue teamers.",
+        "html": "In the exploits, we came to learn about Fuzzbunch, NSA’s exploit framework – “NSA’s metasploit”. I know a few people who have tried to use it and fail due to lack of knowledge/ familiarity with the dependencies that Fuzzbunch demands…fret no more. We can exploit the same vulnerabilities using our beloved Metasploit :-). Currently Metasploit has the MS17-010 SMB RCE Detection module which “uses information disclosure to determine if MS17-010 has been patched or not. Specifically, it connects to the IPC$ tree and attempts a transaction on FID 0. If the status returned is “STATUS_INSUFF_SERVER_RESOURCES”, the machine does not have the MS17-010 patch. If the machine is missing the MS17-010 patch, the module will check for an existing DoublePulsar (ring 0 shellcode/malware) infection. This module does not require valid SMB credentials in default server configurations. It can log on as the user “\\” and connect to IPC$.” It is a scanner module and just informs you that you need to patch your windows boxes – extremely useful for blue teamers."
+      },
+      {
+        "type": "paragraph",
+        "text": "If you are interested to exploit, read on…",
+        "html": "<del>If you are interested to exploit, read on…</del>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Our friends atEleven Paths, created a Metasploit module that we can add to our MSF and get a nice meterpreter session.",
+        "html": "<del>Our friends at <a href=\"https://web.archive.org/web/20251006080258/https://github.com/ElevenPaths/Eternalblue-Doublepulsar-Metasploit\">Eleven Paths</a>, created a Metasploit module that we can add to our MSF and get a nice meterpreter session.</del>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Steps:",
+        "html": "<del>Steps:</del>"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Download the file from https://github.com/ElevenPaths/Eternalblue-Doublepulsar-Metasploit",
+          "Copy theeternalblue_doublepulsar.rbfile to the metasploit windows smb exploits path (/usr/share/metasploit-framework/modules/exploits/windows/smb)",
+          "Load msf and select the eternalblue_doublepulsar module"
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20251006080258im_/https://the-infosec.com/wp-content/uploads/2017/05/msf-use-eternalblue_.png?w=750",
+        "alt": "msf use eternalblue_"
+      },
+      {
+        "type": "paragraph",
+        "text": "At this point it is important to remind ourselves what the two exploits really do:",
+        "html": "<del>At this point it is important to remind ourselves what the two exploits really do:</del>"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20251006080258im_/https://the-infosec.com/wp-content/uploads/2017/05/description.png?w=750",
+        "alt": "Description"
+      },
+      {
+        "type": "paragraph",
+        "text": "and the parameters we need to input:",
+        "html": "<del>and the parameters we need to input:</del>"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20251006080258im_/https://the-infosec.com/wp-content/uploads/2017/05/basic-options.png?w=1566&h=258",
+        "alt": "basic options"
+      },
+      {
+        "type": "paragraph",
+        "text": "And with that,we are set. Fire up the exploit…and voila! Meterpreter session as SYSTEM – we do not even need to elevate privileges :-O",
+        "html": "<del>And with that,we are set. Fire up the exploit…and voila! Meterpreter session as SYSTEM – we do not even need to elevate privileges :-O</del>"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20251006080258im_/https://the-infosec.com/wp-content/uploads/2017/05/meterpreter-session_.png?w=750",
+        "alt": "meterpreter session_"
+      },
+      {
+        "type": "paragraph",
+        "text": "Though Microsoft hasreleasedpatches for this issue, there are millions if not billions of servers, workstations still vulnerable for various reasons. And worse, it is now easier to exploit, as we have seen.",
+        "html": "<del>Though Microsoft has <a href=\"https://web.archive.org/web/20251006080258/https://blogs.technet.microsoft.com/msrc/2017/04/14/protecting-customers-and-evaluating-risk/\">released</a> patches for this issue, there are millions if not billions of servers, workstations still vulnerable for various reasons. And worse, it is now easier to exploit, as we have seen.</del>"
+      },
+      {
+        "type": "paragraph",
+        "text": "UPDATE!",
+        "html": "<strong>UPDATE!</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "I should have updated this ages ago! So, a metasploit module was developed for the above exploit and makes exploiting this vulnerability a breeze. Surprisingly, this vulnerability is still not being patched..see video below:",
+        "html": "I should have updated this ages ago! So, a metasploit module was developed for the above exploit and makes exploiting this vulnerability a breeze. Surprisingly, this vulnerability is still not being patched..see video below:<br/>\n<iframe allow=\"clipboard-write\" allowfullscreen=\"\" aria-label=\"VideoPress Video Player\" frameborder=\"0\" height=\"422\" src=\"https://web.archive.org/web/20251006080258if_/https://video.wordpress.com/embed/Uv3X4eW3?hd=0&amp;autoPlay=0&amp;permalink=1&amp;loop=0&amp;preloadContent=metadata&amp;muted=0&amp;playsinline=0&amp;controls=1&amp;cover=1\" title=\"VideoPress Video Player\" width=\"750\"></iframe><script src=\"https://web.archive.org/web/20251006080258js_/https://v0.wordpress.com/js/next/videopress-iframe.js?m=1739540970\"></script>"
+      }
+    ]
+  },
+  {
+    "slug": "penetration-testing-sharepoint",
+    "title": "Penetration Testing Sharepoint",
+    "date": "April 2017",
+    "description": "Reconnaissance and security testing techniques for Microsoft Sharepoint, using Google dorks and OWASP Top 10 vulnerability checks.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2017/04/18/penetration-testing-sharepoint/",
+    "tags": [],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Like any normal web application, Sharepoint may fall prey to OWASP Top 10 vulnerabilities with a special focus on XSS, mostly due to inadequate patching and misconfiguration. On this post, we focus on recon / what sharepoint is exposing.",
+        "html": "Like any normal web application, Sharepoint may fall prey to OWASP Top 10 vulnerabilities with a special focus on XSS, mostly due to inadequate patching and misconfiguration. On this post, we focus on recon / what sharepoint is exposing."
+      },
+      {
+        "type": "paragraph",
+        "text": "Google Dorks FTW!:",
+        "html": "<strong>Google Dorks FTW!:</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Some google dorks to help you find sharepoint installations exposed to the web as below. It would be wise to add the parameters “site:yoursite.com < then the below dorks>” to narrow down the search and discover what your sharepoint installation is exposing to the public.",
+        "html": "Some google dorks to help you find sharepoint installations exposed to the web as below. It would be wise to add the parameters “site:yoursite.com &lt; then the below dorks&gt;” to narrow down the search and discover what your sharepoint installation is exposing to the public."
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/google-dork1_.png?w=750",
+        "alt": "google dork1_"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/dork4_.png?w=750",
+        "alt": "dork4_"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/googledork3_.png?w=750",
+        "alt": "googledork3_"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/googledorks2_.png?w=750",
+        "alt": "googledorks2_"
+      },
+      {
+        "type": "paragraph",
+        "text": "Fuzz:",
+        "html": "<strong>Fuzz:</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "From the above, we can view a lot of documents, which you may not necessarily need to expose. In addition to the classified documents seen above we can also :",
+        "html": "From the above, we can view a lot of documents, which you may not necessarily need to expose. In addition to the classified documents seen above we can also :"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "discover Sharepoint version installed",
+          "discover the Sharepoint web services configured on the application",
+          "enumerate users",
+          "view default SharePoint _layouts, _catalogs, configuration settings and forms"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "How?",
+        "html": "<strong>How?</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "I prefer to use thisfuzzer, but you can use dirbuster, fuzzdb etc. I have over time come up with alistto feed the fuzzer.",
+        "html": "I prefer to use this <a href=\"https://web.archive.org/web/20230529062249/https://github.com/alienwithin/Scripts-Sploits/blob/master/giveWebHead.py\">fuzzer</a>, but you can use dirbuster, fuzzdb etc. I have over time come up with a <a href=\"https://web.archive.org/web/20230529062249/https://github.com/XalfiE/Sharepoint-URL-Fuzzlist/tree/master\">list</a> to feed the fuzzer."
+      },
+      {
+        "type": "paragraph",
+        "text": "Run the scanner as below and discover all the information that your sharepoint installation is exposing to the public 🙂",
+        "html": "Run the scanner as below and discover all the information that your sharepoint installation is exposing to the public 🙂"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/scan_.png?w=750",
+        "alt": "scan_"
+      },
+      {
+        "type": "paragraph",
+        "text": "Going to the pages with HTTP status code 200, we find:",
+        "html": "Going to the pages with HTTP status code 200, we find:"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Frontpage server extensions and sharepoint versions:"
+        ]
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/vti_inf_-html.png?w=750",
+        "alt": "_vti_inf_.html"
+      },
+      {
+        "type": "paragraph",
+        "text": "2. Sharepoint web services:",
+        "html": "2. Sharepoint web services:"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/vti_bin_spdisco_-aspx.png?w=750",
+        "alt": "_vti_bin_spdisco_.aspx"
+      },
+      {
+        "type": "paragraph",
+        "text": "3. Default layouts:",
+        "html": "3. Default layouts:"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/viewlsts_.png?w=750",
+        "alt": "viewlsts_"
+      },
+      {
+        "type": "paragraph",
+        "text": "etc…you get the drift.",
+        "html": "etc…you get the drift."
+      },
+      {
+        "type": "paragraph",
+        "text": "What to do?",
+        "html": "<strong>What to do?</strong>"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Patch.",
+          "Restrict / remove default pages, forms, layouts"
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "word-heist",
+    "title": "Word Heist!",
+    "date": "April 2017",
+    "description": "Leveraging MS Word documents for social engineering, capturing NTLM hashes without macros using a clever spear-phishing technique.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2017/04/04/word-heist/",
+    "tags": [],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "So, I stumbled upon an interesting script.",
+        "html": "So, I stumbled upon an interesting script."
+      },
+      {
+        "type": "paragraph",
+        "text": "Over the years, I have been using various tools and scripts to do spear phishing; with the many vulnerabilities in Microsoft Office Suite and Adobe PDF reader being enablers and the ability to embed macros being an even bigger enabler. But things have changed and users are now keen on the “enable macro warning” and they don’t enable macros anymore 😦",
+        "html": "Over the years, I have been using various tools and scripts to do spear phishing; with the many vulnerabilities in Microsoft Office Suite and Adobe PDF reader being enablers and the ability to embed macros being an even bigger enabler. But things have changed and users are now keen on the “enable macro warning” and they don’t enable macros anymore 😦"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230401165515im_/https://theinfoseccom.files.wordpress.com/2017/04/macros-warning.png?w=750",
+        "alt": "macros warning"
+      },
+      {
+        "type": "paragraph",
+        "text": "…hence most spear phishing attempts fail or are filtered by mail filters, firewalls, IPSs as they are deemed suspicious.",
+        "html": "…hence most spear phishing attempts fail or are filtered by mail filters, firewalls, IPSs as they are deemed suspicious."
+      },
+      {
+        "type": "paragraph",
+        "text": "Sothiswas a breath of fresh air and seems to get through most IPSs and security devices.",
+        "html": "So <a href=\"https://web.archive.org/web/20230401165515/https://github.com/0x090x0/WordSteal/blob/master/main.py\" target=\"_blank\">this </a>was a breath of fresh air and seems to get through most IPSs and security devices."
+      },
+      {
+        "type": "paragraph",
+        "text": "On your listening server:",
+        "html": "<strong>On your listening server:</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Download thescript. Put an image of your choice in the folder. I chose elephant.jpg",
+        "html": "Download the <a href=\"https://web.archive.org/web/20230401165515/https://github.com/0x090x0/WordSteal/blob/master/main.py\">script</a>. Put an image of your choice in the folder. I chose elephant.jpg"
+      },
+      {
+        "type": "paragraph",
+        "text": "Start script as below. For this we want to set this server as a listening server hence the1after the image. Setting to 0 will not run the listener.",
+        "html": "Start script as below. For this we want to set this server as a listening server hence the <strong>1</strong> after the image. Setting to 0 will not run the listener."
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230401165515im_/https://theinfoseccom.files.wordpress.com/2017/04/script-start.png?w=750",
+        "alt": "script start"
+      },
+      {
+        "type": "paragraph",
+        "text": "The script is mostly automated and the onlyhardwork is to send the file. Notice below that an *.rtf file (1491333207.rtf) has been generated from the *.jpg (elephant.jpg) image.",
+        "html": "The script is mostly automated and the only <del>hard</del> work is to send the file. Notice below that an *.rtf file (<em>1491333207.rtf</em>) has been generated from the *.jpg (<em>elephant.jpg</em>) image."
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230401165515im_/https://theinfoseccom.files.wordpress.com/2017/04/file-created.png?w=750",
+        "alt": "file created"
+      },
+      {
+        "type": "paragraph",
+        "text": "This is what we need to send to our victim, and when we need to get really creative..",
+        "html": "This is what we need to send to our victim, and when we need to get really creative.."
+      },
+      {
+        "type": "paragraph",
+        "text": "After sending the *.rtf document to victim:",
+        "html": "<strong>After sending the *.rtf document to victim:</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Wait for victim to open the document, and immediately you notice NTLM hashes being populated on the listening server terminal. At the same time a file,passwords_netntlmv2,which contains NTLMv2 hashesis created. Which brings us to the last step – cracking the hashes..",
+        "html": "Wait for victim to open the document, and immediately you notice NTLM hashes being populated on the listening server terminal. At the same time a file, <strong>passwords_netntlmv2, </strong>which contains NTLMv2 hashes<strong> </strong>is created. Which brings us to the last step – cracking the hashes.."
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230401165515im_/https://theinfoseccom.files.wordpress.com/2017/04/password-hashes.png?w=750",
+        "alt": "password hashes"
+      },
+      {
+        "type": "paragraph",
+        "text": "Password cracking",
+        "html": "<strong>Password cracking</strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "There are many tools to do this, but john the ripper is recommended for various reasons. I used JTR for this illustration as below:",
+        "html": "There are many tools to do this, but john the ripper is recommended for various reasons. I used JTR for this illustration as below:"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20230401165515im_/https://theinfoseccom.files.wordpress.com/2017/04/username-and-password.png?w=750",
+        "alt": "username and password"
+      },
+      {
+        "type": "paragraph",
+        "text": "And voila, passwords of the victim!",
+        "html": "And voila, passwords of the victim!"
+      },
+      {
+        "type": "paragraph",
+        "text": "Note:it would have definitely taken a longer time depending on the complexity of the password and wordlist used.",
+        "html": "<strong>Note:</strong> it would have definitely taken a longer time depending on the complexity of the password and wordlist used."
+      },
+      {
+        "type": "paragraph",
+        "text": "From a blue teamers point of view:",
+        "html": "From a blue teamers point of view:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "We see the need for a strong password which should meet password complexity requirements",
+          "The back connection via port 445 is common especially for meterpreter sessions and this would point, though not necessarily, to an indicator of compromise."
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "do-you-know-what-your-erp-is-telling-us",
+    "title": "Do You Know What Your ERP Is Telling Us?",
+    "date": "March 2017",
+    "description": "Auditing Oracle E-Business Suite from an insider threat and external attacker perspective, uncovering information disclosure in ERP systems.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/",
+    "tags": [],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Interesting engagement I had a few weeks ago, a client wanted assurance on their ERP – Oracle E-Business suite, to be specific. I spent a few weeks just to formulate an efficient strategy and be able to cover most controls from an insider threat perspective and an external authenticated attacker angle.",
+        "html": "Interesting engagement I had a few weeks ago, a client wanted assurance on their ERP – Oracle E-Business suite, to be specific. I spent a few weeks just to formulate an efficient strategy and be able to cover most controls from an insider threat perspective and an external authenticated attacker angle."
+      },
+      {
+        "type": "paragraph",
+        "text": "For this post, I shall focus on an external unauthenticated attacker angle with a bias to information disclosure, hence the title. No intrusion – give us consent to your environment and I shall be happy to demo. 🙂",
+        "html": "For this post, I shall focus on an external unauthenticated attacker angle with a bias to information disclosure, hence the title. No intrusion – give us consent to your environment and I shall be happy to demo. 🙂"
+      },
+      {
+        "type": "paragraph",
+        "text": "The Oracle EBS suite is a pretty massive estate – version 11 for instance is reported to have around 15000 JSP files, 800 enabled PL/SQL packages and procedures,countless forms, countless servlets etc. This, ofcourse, increases the attack surface considerably: attackers are happy, blue teamers should be worried.",
+        "html": "The Oracle EBS suite is a pretty massive estate – version 11 for instance is reported to have around 15000 JSP files, 800 enabled PL/SQL packages and procedures,countless forms, countless servlets etc. This, ofcourse, increases the attack surface considerably: attackers are happy, blue teamers should be worried."
+      },
+      {
+        "type": "paragraph",
+        "text": "Before we dive in to Oracle EBS, I should say SAP also has its own vulnerabilities too, which I should cover in coming weeks especially around permissions, storage of passwords and use of default user credentials –SAP, DDIC, EARLYWATCH, anyone?",
+        "html": "Before we dive in to Oracle EBS, I should say SAP also has its own vulnerabilities too, which I should cover in coming weeks especially around permissions, storage of passwords and use of default user credentials –<a href=\"https://web.archive.org/web/20250606032112/https://help.sap.com/saphelp_nw70/helpdata/en/3e/cdaccbedc411d3a6510000e835363f/content.htm\" rel=\"noopener\" target=\"_blank\">SAP, DDIC, EARLYWATCH</a>, anyone?"
+      },
+      {
+        "type": "paragraph",
+        "text": "What info can we get from Oracle EBS version 11 as an external unauthenticated user?",
+        "html": "<em>What info can we get from Oracle EBS version 11 as an external unauthenticated user?</em>"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Log files:"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "What do most log files usually have? username, source IP/name, destination IP/name, protocols in use, descriptive error messages, service name/properties, right? What if I told you can get all that as an unauthenticated external user?",
+        "html": "What do most log files usually have? username, source IP/name, destination IP/name, protocols in use, descriptive error messages, service name/properties, right? What if I told you can get all that as an unauthenticated external user?"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/sqlnetlog_edit.png?w=750",
+        "alt": "sqlnetlog_edit"
+      },
+      {
+        "type": "paragraph",
+        "text": "Focus on the blurred parameters and the framed items in the screenshot. Lots of (useful) information, don’t you think?",
+        "html": "Focus on the blurred parameters and the framed items in the screenshot. Lots of (useful) information, don’t you think?"
+      },
+      {
+        "type": "paragraph",
+        "text": "2.Upload folder",
+        "html": "<strong>         2. <span style=\"text-decoration:underline;\">Upload folder</span></strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "As an unauthenticated user i.e. guest user one is able to reach an upload page…",
+        "html": "As an unauthenticated user i.e. guest user one is able to reach an upload page…"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/upload_master_edit2.png?w=750",
+        "alt": "upload_master_edit"
+      },
+      {
+        "type": "paragraph",
+        "text": "Looking closely, we can see that we are authenticated.. It would interest you to find out what you can upload and how it impacts the security of your EBS suite. As earlierpromised?, I won’t delve much into the exploitation, but rather focus on the amount of information an unauthenticated attacker has access to.",
+        "html": "Looking closely, we can see that we are authenticated.. It would interest you to find out what you can upload and how it impacts the security of your EBS suite. As earlier <em>promised?</em>, I won’t delve much into the exploitation, but rather focus on the amount of information an unauthenticated attacker has access to."
+      },
+      {
+        "type": "paragraph",
+        "text": "3.Cookie properties:",
+        "html": "<strong>         3. <span style=\"text-decoration:underline;\">Cookie properties:</span></strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Any attacker loves cookies. Main reason: they hold keys to sessions:",
+        "html": "Any attacker loves cookies. Main reason: they hold keys to sessions:"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/cookies_edit.png?w=750",
+        "alt": "cookies_edit"
+      },
+      {
+        "type": "paragraph",
+        "text": "4.Create form:",
+        "html": "<strong>         4. <span style=\"text-decoration:underline;\">Create form:</span></strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Want to create a form? As an unauthenticated user? No problem",
+        "html": "Want to create a form? As an unauthenticated user? No problem"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/createform_edit.png?w=750",
+        "alt": "createform_edit"
+      },
+      {
+        "type": "paragraph",
+        "text": "5.Status of servlets:",
+        "html": "<strong>           5. <span style=\"text-decoration:underline;\">Status of servlets:</span></strong>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Want to know version of servlets and if they are working? No problem!",
+        "html": "Want to know version of servlets and if they are working? No problem!"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/working_edit.png?w=750",
+        "alt": "working_edit"
+      },
+      {
+        "type": "paragraph",
+        "text": "6.A few configuration files:",
+        "html": "<strong>               6. <span style=\"text-decoration:underline;\"> A few configuration files:</span></strong>"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/pasta_edit1.png?w=750",
+        "alt": "pasta_edit"
+      },
+      {
+        "type": "paragraph",
+        "text": "7.Version disclosure:",
+        "html": "<strong>                7. <span style=\"text-decoration:underline;\">Version disclosure:</span></strong>"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/servlet-version_edit.png?w=750",
+        "alt": "servlet version_edit"
+      },
+      {
+        "type": "paragraph",
+        "text": "8.Diagnostics page:",
+        "html": "8. <span style=\"text-decoration:underline;\"><strong>Diagnostics page:</strong></span>"
+      },
+      {
+        "type": "paragraph",
+        "text": "A cool diagnostics page to get even more information 🙂",
+        "html": "A cool diagnostics page to get even more information 🙂"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/aol-test_edit.png?w=750",
+        "alt": "AOL test_edit"
+      },
+      {
+        "type": "paragraph",
+        "text": "8.Username and Passwords:",
+        "html": "8. <span style=\"text-decoration:underline;\">Username and Passwords:</span>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Saving the best for last – username and passwords!!!!!!",
+        "html": "Saving the best for last – username and passwords!!!!!!"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/passwords_edit.png?w=750",
+        "alt": "Passwords_edit"
+      },
+      {
+        "type": "paragraph",
+        "text": "The above passwords are SHA-1 encrypted and are easily decrypted. As a matter of fact the above are the default passwords shipped with the Oracle installation.",
+        "html": "The above passwords are SHA-1 encrypted and are easily decrypted. As a matter of fact the above are the default passwords shipped with the Oracle installation."
+      },
+      {
+        "type": "paragraph",
+        "text": "Remember this is just got by sampling some of the JSPs, servlets and forms. It is not realistic to scope in an engagement for all the JSPs as an external infosec consultant. As a resident infosec engineer, I would be keen on all the services, JSPs, servlets, forms etc. Remember:attackers need to get it right onlyonce, blue team needs to get it rightALLthe time.",
+        "html": "Remember this is just got by sampling some of the JSPs, servlets and forms. It is not realistic to scope in an engagement for all the JSPs as an external infosec consultant. As a resident infosec engineer, I would be keen on all the services, JSPs, servlets, forms etc. Remember: <em>attackers need to get it right only <span style=\"text-decoration:underline;\"><strong>once</strong></span>, blue team needs to get it right <span style=\"text-decoration:underline;\"><strong>ALL</strong> </span>the time.</em>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Also, keep in mind while doing a security audit for an ERP, focus is how much data can we get and not necessarily an OS shell.",
+        "html": "Also, keep in mind while doing a security audit for an ERP, focus is how much data can we get and not necessarily an OS shell."
+      },
+      {
+        "type": "paragraph",
+        "text": "This post wouldn’t be complete without some mitigating controls:",
+        "html": "This post wouldn’t be complete without some mitigating controls:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Reduce attacker surface by removing the JSPs, servlets, services, forms not in use. This should be a well planned operation and involvement from the business is key. Trust me you should be able to reduce attack surface by up to 95%. I would be happy to hearfeedbackon this..:-)",
+          "Apply periodic Oracle EBS critical patch updates CPUs – this is very key.",
+          "Block access to links that an unauthenticated user wouldn’t need access to – you could start with the ones demonstrated in this post and others that you discover; create a custom 404 page to redirect traffic to these pages.",
+          "Review access logs and disable unnecessary access"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "I should be putting up another post on the EBS version 12 pretty soon…cheers!",
+        "html": "I should be putting up another post on the EBS version 12 pretty soon…cheers!"
+      }
+    ]
+  },
+  {
+    "slug": "lateral-movement-part-ii",
+    "title": "Lateral Movement: Part II",
+    "date": "March 2017",
+    "description": "Continuation of the lateral movement series, focusing on techniques for privilege escalation and moving through a Windows domain environment.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2017/03/26/lateral-movement-part-ii/",
+    "tags": [],
+    "content": [
+      {
+        "type": "heading",
+        "level": 1,
+        "text": "Post coming up…"
+      }
+    ]
+  },
+  {
+    "slug": "should-we-be-worried-huawei-router-part-ii",
+    "title": "Should We Be Worried? Huawei Router: Part II",
+    "date": "March 2017",
+    "description": "Digging into the Huawei HG8245H router configuration, analysing suspicious parameters like X_HW_MonitorCollector and external server URLs.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2017/03/23/should-we-be-worried-huawei-router-part-ii/",
+    "tags": [],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "This is a follow-up of thispost...",
+        "html": "This is a follow-up of this <a href=\"https://web.archive.org/web/20250823095551/https://the-infosec.com/2017/03/20/huawei-hg8245h-router-privilege-escalatio/\" target=\"_blank\">post.</a>.."
+      },
+      {
+        "type": "paragraph",
+        "text": "Good. Now we are at par.",
+        "html": "Good. Now we are at par."
+      },
+      {
+        "type": "paragraph",
+        "text": "After getting the router config as in the earlier post, I got to comb through the router config. Interesting things, I tell you.",
+        "html": "After getting the router config as in the earlier post, I got to comb through the router config. Interesting things, I tell you."
+      },
+      {
+        "type": "paragraph",
+        "text": "One of the parameters,X_HW_MonitorCollectorhas a server URL ofyjyx.gd.edatahome.comand atftpport of6169.",
+        "html": "One of the parameters, <strong>X_HW_MonitorCollector </strong>has a server URL of <strong>yjyx.gd.edatahome.com</strong> and a <strong>tftp</strong> port of <strong>6169</strong>."
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250823095551im_/https://the-infosec.com/wp-content/uploads/2017/03/edatahome.png?w=1047&h=234",
+        "alt": "edatahome"
+      },
+      {
+        "type": "paragraph",
+        "text": "As shown above, the setting for this configurationseemsdisabled as theEnableswitch is set at0,and the number of entries being monitored is set at0.Maybe we should rest easy?Should we?",
+        "html": "As shown above, the setting for this configuration <em>seems </em>disabled as the <strong>Enable </strong>switch is set at <strong>0, </strong>and the number of entries being monitored is set at<strong> 0. </strong>Maybe we should rest easy?Should we?"
+      },
+      {
+        "type": "paragraph",
+        "text": "A quick whois check of edatahome.com is as below.",
+        "html": "A quick whois check of edatahome.com is as below."
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250823095551im_/https://the-infosec.com/wp-content/uploads/2017/03/edatahome2.png?w=750",
+        "alt": "edatahome2"
+      },
+      {
+        "type": "paragraph",
+        "text": "Hmmm….should we be worried?",
+        "html": "Hmmm….should we be worried?"
+      }
+    ]
+  },
+  {
+    "slug": "auditing-linux-unix-os-120-seconds",
+    "title": "Auditing Linux/Unix OS in 120 Seconds Flat",
+    "date": "March 2017",
+    "description": "A baseline security auditing script for Linux and Unix operating systems, modelled around CIS benchmark controls that runs in under 2 minutes.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2017/03/20/auditing-linux-unix-os-in-120-seconds-flat/",
+    "tags": [],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Well, most of us have seen the movie Gone in 60 seconds, so I decided to write a baseline script for auditing linux and most unix operating systems in well under 2 mins – averages about  130 seconds on my test Centos and Red hat distributions.",
+        "html": "Well, most of us have seen the movie Gone in 60 seconds, so I decided to write a baseline script for auditing linux and most unix operating systems in well under 2 mins – averages about  130 seconds on my test Centos and Red hat distributions."
+      },
+      {
+        "type": "paragraph",
+        "text": "The script is modeled around most of the operating system controls as recommended by theCenter of Internet Security.",
+        "html": "The script is modeled around most of the operating system controls as recommended by the <a href=\"https://web.archive.org/web/20231215133031/https://www.cisecurity.org/\" rel=\"noopener\" target=\"_blank\">Center of Internet Security</a>."
+      },
+      {
+        "type": "paragraph",
+        "text": "What I really like about the script is the ease of downloading, using it and customizing it to fit your security risk appetite, and operating system flavour.",
+        "html": "What I really like about the script is the ease of downloading, using it and customizing it to fit your security risk appetite, and operating system flavour."
+      },
+      {
+        "type": "paragraph",
+        "text": "Below is a readme of the tool:",
+        "html": "Below is a readme of the tool:"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20231215133031im_/https://theinfoseccom.files.wordpress.com/2017/03/readme.jpg?w=750",
+        "alt": "Readme"
+      },
+      {
+        "type": "paragraph",
+        "text": "Below is a screen grab of how it looks like as it starts auditing your operating system:",
+        "html": "Below is a screen grab of how it looks like as it starts auditing your operating system:"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20231215133031im_/https://theinfoseccom.files.wordpress.com/2017/03/start1.png?w=750",
+        "alt": "start1"
+      },
+      {
+        "type": "paragraph",
+        "text": "Enough with screenshots, go have a look for yourselfhere.",
+        "html": "Enough with screenshots, go have a look for yourself <a href=\"https://web.archive.org/web/20231215133031/https://github.com/XalfiE/Nix-Auditor/archive/2.0.zip\" rel=\"noopener\">here</a>."
+      },
+      {
+        "type": "paragraph",
+        "text": "Always happy to hear your feedback, issues and ofcourse pull requests 🙂",
+        "html": "Always happy to hear your feedback, issues and ofcourse pull requests 🙂"
+      },
+      {
+        "type": "paragraph",
+        "text": "Update!",
+        "html": "<span style=\"text-decoration:underline;\"><strong>Update!</strong></span>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Nix – Auditor 2.0:",
+        "html": "Nix – Auditor 2.0:"
+      },
+      {
+        "type": "paragraph",
+        "text": "Change Log:",
+        "html": "Change Log:"
+      },
+      {
+        "type": "paragraph",
+        "text": "Added color variables BLUE, RED, NC (NO COLOR) and GREEN on lines 210 – 213 Applied color variables to “passed” and “failed” results in function func_wrapper on lines 1171 and – 1173",
+        "html": "Added color variables BLUE, RED, NC (NO COLOR) and GREEN on lines 210 – 213 Applied color variables to “passed” and “failed” results in function func_wrapper on lines 1171 and – 1173"
+      }
+    ]
+  },
+  {
+    "slug": "huawei-hg8245h-router-privilege-escalation",
+    "title": "Huawei HG8245H Router \"Privilege Escalation\": Part I",
+    "date": "March 2017",
+    "description": "Exploring the Huawei HG8245H home router, from default credentials to privilege escalation and full configuration extraction.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2017/03/20/huawei-hg8245h-router-privilege-escalatio/",
+    "tags": [],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "This is a prequel to thispost here",
+        "html": "<span style=\"color:#008080;\"><em>This is a prequel to this <a href=\"https://web.archive.org/web/20250823035153/https://the-infosec.com/2017/03/23/should-we-be-worried-huawei-router-part-ii/\" style=\"color:#008080;\">post here</a></em></span>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Well, I got to play around with my router a few weeks ago. My router, a Huawei HG8245H version, is pretty decent for home use.",
+        "html": "Well, I got to play around with my router a few weeks ago. My router, a Huawei HG8245H version, is pretty decent for home use."
+      },
+      {
+        "type": "paragraph",
+        "text": "First things first, the login password is smack on the bottom of router as below.",
+        "html": "First things first, the login password is smack on the bottom of router as below."
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250823035153im_/https://the-infosec.com/wp-content/uploads/2017/03/routerpic.jpg?w=750",
+        "alt": "routerpic"
+      },
+      {
+        "type": "paragraph",
+        "text": "Most routers have a well known default password, infact there are multiple sites dedicated to documentthat. So I got curious to know what info I could get using these credentials.",
+        "html": "Most routers have a well known default password, infact there are multiple sites dedicated to document <a href=\"https://web.archive.org/web/20250823035153/http://www.routerpasswords.com/\" target=\"_blank\">that</a>. So I got curious to know what info I could get using these credentials."
+      },
+      {
+        "type": "paragraph",
+        "text": "A quick google search says that the user root/admin is a normal user with the telecomadmin/admintelecom being the super user. Funny enough, I was unable to log in using the admintelecom/telecomadmin set of credentials. The superuser account allows a user tohave access to other options, notably backup configuration settings, edit and load router config file etc.",
+        "html": "A quick google search says that the user root/admin is a normal user with the telecomadmin/admintelecom being the super user. Funny enough, I was unable to log in using the admintelecom/telecomadmin set of credentials. The superuser account allows a user to<span style=\"font-weight:400;\"> have access to other options, notably backup configuration settings, edit and load router config file etc. </span>"
+      },
+      {
+        "type": "paragraph",
+        "text": "An explanation I got as to why this is the case is because as soon as the router gets connected to ISP WAN it grabs configuration from ISP and this particular set of admin credentials don’t work. So how do we bypass this?",
+        "html": "<span style=\"font-weight:400;\">An explanation I got as to why this is the case is because as soon as the router gets connected to ISP WAN it grabs configuration from ISP and this particular set of admin credentials don’t work. So how do we bypass this?</span>"
+      },
+      {
+        "type": "paragraph",
+        "text": "Proof of concept:",
+        "html": "<strong><em>Proof of concept:</em></strong>"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Enter web interface (http://192.168.100.1) using root/admin credentials",
+          "Reboot the router.",
+          "Disconnect fibre cable as it restarts",
+          "As it restarts, try to log in onhttp://192.168.100.1as telecomadmin/admintelecom"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Voila! You are in, as superadmin, with more optionsto tweak the router 😀",
+        "html": "<span style=\"font-weight:400;\">Voila! You are in, as superadmin, with more options</span><span style=\"font-weight:400;\"> to tweak the router 😀</span>"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250823035153im_/https://the-infosec.com/wp-content/uploads/2017/03/telecomadmin-login1.png?w=750",
+        "alt": "telecomadmin login"
+      },
+      {
+        "type": "paragraph",
+        "text": "5. To elevate your normal user root to superadmin status. Download router config file           from System Tools > Configuration File.. This  file named “hw_ctree.xml” is                             encrypted and appears as below:",
+        "html": "<span style=\"font-weight:400;\">        5. To elevate your normal user root to superadmin status. Download router config file           from System Tools &gt; Configuration File.. This  file named “hw_ctree.xml” is                             encrypted and appears as below:</span>"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250823035153im_/https://the-infosec.com/wp-content/uploads/2017/03/encrypte.png?w=750",
+        "alt": "encrypte"
+      },
+      {
+        "type": "paragraph",
+        "text": "Fortunately, we can decrypt the router config file using any aes decryption tool.",
+        "html": "Fortunately, we can decrypt the router config file using any aes decryption tool."
+      },
+      {
+        "type": "paragraph",
+        "text": "6. Proceed to decrypt as below:",
+        "html": "6. Proceed to decrypt as below:"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250823035153im_/https://the-infosec.com/wp-content/uploads/2017/03/ddecrypt.png?w=750",
+        "alt": "ddecrypt"
+      },
+      {
+        "type": "paragraph",
+        "text": "and here we have our plaintext config file:",
+        "html": "and here we have our plaintext config file:"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250823035153im_/https://the-infosec.com/wp-content/uploads/2017/03/interesting-users.png?w=1879&h=210",
+        "alt": "interesting users"
+      },
+      {
+        "type": "paragraph",
+        "text": "For this post, our area of concern would be the part highlighted below:",
+        "html": "<span style=\"font-weight:400;\">For this post, our area of concern would be the part highlighted below:</span>"
+      },
+      {
+        "type": "image",
+        "src": "https://web.archive.org/web/20250823035153im_/https://the-infosec.com/wp-content/uploads/2017/03/2more-users.png?w=750",
+        "alt": "2more users"
+      },
+      {
+        "type": "paragraph",
+        "text": "Notice the different userlevels for the two users (root and telecomadmin), 0 and 1. Now we know userlevel 0 is superadministrator.",
+        "html": "<span style=\"font-weight:400;\">Notice the different userlevels for the two users (root and telecomadmin), 0 and 1. Now we know userlevel 0 is superadministrator. </span>"
+      },
+      {
+        "type": "paragraph",
+        "text": "7. Edit the root user line to userlevel 0. Save file and decrypt it",
+        "html": "<span style=\"font-weight:400;\">        7. Edit the root user line to userlevel 0. Save file and decrypt it</span>"
+      },
+      {
+        "type": "paragraph",
+        "text": "8. Log in to our web interface, upload the new config file and restart router.",
+        "html": "<span style=\"font-weight:400;\">        8. Log in to our web interface, upload the new config file and restart router.</span>"
+      },
+      {
+        "type": "paragraph",
+        "text": "9.Once restarted, log in as root/admin, and enjoy the new options available  🙂",
+        "html": "<span style=\"font-weight:400;\">       9.Once restarted, log in as root/admin, and enjoy the new options available  🙂</span>"
+      },
+      {
+        "type": "paragraph",
+        "text": "I called up Huawei to notify them of this and after a rather lengthy discussion they finally emailed me:“We will not track this issue as a vulnerability. If you still have some different option please never hesitate to contact us.Thanks again for your concern about the security problems of Huawei products. If you ever find any potential security issues in Huawei products in the future, we are looking forward to working with you again.”",
+        "html": "I called up Huawei to notify them of this and after a rather lengthy discussion they finally emailed me: <span style=\"color:#3366ff;\"><em>“We will not track this issue as a vulnerability. If you still have some different option please never hesitate to contact us. </em></span><span style=\"color:#3366ff;\"><em>Thanks again for your concern about the security problems of Huawei products. If you ever find any potential security issues in Huawei products in the future, we are looking forward to working with you again.”</em></span>"
+      },
+      {
+        "type": "paragraph",
+        "text": "I would,however like to thank Huawei’s quick response and follow up on their part. Many security researchers would have however have wished that we would fix this issue as we all know how attacks like DDOS are beingpropagatedusing default credentials in routers or other IOT devices.",
+        "html": "I would,however like to thank Huawei’s quick response and follow up on their part. Many security researchers would have however have wished that we would fix this issue as we all know how attacks like DDOS are being <a href=\"https://web.archive.org/web/20250823035153/https://blog.sucuri.net/2016/09/iot-home-router-botnet-leveraged-in-large-ddos-attack.html\" target=\"_blank\">propagated</a> using default credentials in routers or other IOT devices."
+      },
+      {
+        "type": "paragraph",
+        "text": "Find Part IIhere",
+        "html": "Find Part II <a href=\"https://web.archive.org/web/20250823035153/https://the-infosec.com/2017/03/23/should-we-be-worried-huawei-router-part-ii/\">here</a>"
+      }
+    ]
+  },
+  {
+    "slug": "lateral-movement-part-i",
+    "title": "Lateral Movement: Part I",
+    "date": "January 2017",
+    "description": "How a normal domain user with no admin privileges can exploit Group Policy Preferences (GPP) passwords to become local administrator across the organisation.",
+    "archive_url": "https://web.archive.org/web/2024/https://the-infosec.com/2017/01/02/lateral-movement-part-i/",
+    "tags": [],
+    "content": []
+  }
+]

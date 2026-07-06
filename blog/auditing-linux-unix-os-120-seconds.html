@@ -37,21 +37,44 @@
       <div class="article-header reveal">
         <div class="article-meta">
           <span class="article-date">March 2017</span>
+          <span style="color: var(--gray-400);">&#183;</span><span style="color: var(--gray-400);">1 min read</span>
         </div>
         <h1>Auditing Linux/Unix OS in 120 Seconds Flat</h1>
+        
       </div>
       <div class="article-content reveal reveal-delay-1">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">A baseline security auditing script for Linux and Unix operating systems, modelled around CIS benchmark controls that runs in under 2 minutes.</p>
-        
-        <div class="archive-notice" style="background: rgba(255,255,255,0.03); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 48px;">
-          <h3 style="margin-top: 0;">Archive Notice</h3>
-          <p>This article was originally published on the legacy WordPress blog. The content is currently preserved in archive format.</p>
-          <p>You can view the original snapshot, complete with any images and comments, on the Wayback Machine:</p>
-          <a href="https://web.archive.org/web/2024/https://the-infosec.com/2017/03/20/auditing-linux-unix-os-in-120-seconds-flat/" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; margin-top: 16px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 20px; height: 20px; margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-            View Full Archive
-          </a>
+
+        <p>Well, most of us have seen the movie Gone in 60 seconds, so I decided to write a baseline script for auditing linux and most unix operating systems in well under 2 mins – averages about  130 seconds on my test Centos and Red hat distributions.</p>
+
+        <p>The script is modeled around most of the operating system controls as recommended by the <a href="https://web.archive.org/web/20231215133031/https://www.cisecurity.org/" rel="noopener" target="_blank">Center of Internet Security</a>.</p>
+
+        <p>What I really like about the script is the ease of downloading, using it and customizing it to fit your security risk appetite, and operating system flavour.</p>
+
+        <p>Below is a readme of the tool:</p>
+
+        <figure><img src="https://web.archive.org/web/20231215133031im_/https://theinfoseccom.files.wordpress.com/2017/03/readme.jpg?w=750" alt="Readme" loading="lazy" /></figure>
+
+        <p>Below is a screen grab of how it looks like as it starts auditing your operating system:</p>
+
+        <figure><img src="https://web.archive.org/web/20231215133031im_/https://theinfoseccom.files.wordpress.com/2017/03/start1.png?w=750" alt="start1" loading="lazy" /></figure>
+
+        <p>Enough with screenshots, go have a look for yourself <a href="https://web.archive.org/web/20231215133031/https://github.com/XalfiE/Nix-Auditor/archive/2.0.zip" rel="noopener">here</a>.</p>
+
+        <p>Always happy to hear your feedback, issues and ofcourse pull requests 🙂</p>
+
+        <p><span style="text-decoration:underline;"><strong>Update!</strong></span></p>
+
+        <p>Nix – Auditor 2.0:</p>
+
+        <p>Change Log:</p>
+
+        <p>Added color variables BLUE, RED, NC (NO COLOR) and GREEN on lines 210 – 213 Applied color variables to “passed” and “failed” results in function func_wrapper on lines 1171 and – 1173</p>
+
+        <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
+          Originally published on <a href="https://the-infosec.com/2017/03/20/auditing-linux-unix-os-in-120-seconds-flat/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
         </div>
+
       </div>
       <div class="article-nav reveal reveal-delay-2">
         <a href="../index.html#blog" class="back-to-blog">
@@ -84,7 +107,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Alfie Njeru | the-infosec.com · Securing Digital Solutions</p>
+        <p>&copy; 2026 Alfie Njeru | the-infosec.com &middot; Securing Digital Solutions</p>
       </div>
     </div>
   </footer>
