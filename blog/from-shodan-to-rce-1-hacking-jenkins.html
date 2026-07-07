@@ -37,21 +37,46 @@
       <div class="article-header reveal">
         <div class="article-meta">
           <span class="article-date">June 2017</span>
+          <span style="color: var(--gray-400);">&#183;</span><span style="color: var(--gray-400);">2 min read</span>
         </div>
         <h1>From Shodan to Remote Code Execution #1 – Hacking Jenkins</h1>
+        
       </div>
       <div class="article-content reveal reveal-delay-1">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">Exploring how misconfigured Jenkins automation servers exposed on the internet can lead to full remote code execution.</p>
-        
-        <div class="archive-notice" style="background: rgba(255,255,255,0.03); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 48px;">
-          <h3 style="margin-top: 0;">Archive Notice</h3>
-          <p>This article was originally published on the legacy WordPress blog. The content is currently preserved in archive format.</p>
-          <p>You can view the original snapshot, complete with any images and comments, on the Wayback Machine:</p>
-          <a href="https://web.archive.org/web/2024/https://the-infosec.com/2017/06/22/from-shodan-to-remote-code-execution-1-hacking-jenkins/" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; margin-top: 16px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 20px; height: 20px; margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-            View Full Archive
-          </a>
+
+        <p>In this era of extreme automation, whether for development, programming deployment or even security management are we getting closer to security maturity or are we better off without the automation?</p>
+
+        <p>In the next posts, I hope to uncover some of the tools/ applications employed on enterprises geared towards automation and better security but end up exposing and increasing surface area for attack. We start with Jenkins.</p>
+
+        <p>Jenkins  is an open source automation server written in Java. Jenkins helps to automate the non-human part of software development process, with continuous integration and facilitating technical aspects of continuous delivery. It is a server-based system that runs in servlet containers such as Apache Tomcat. It supports version control tools, including AccuRev, CVS, Subversion, Git, Mercurial, Perforce, ClearCase and RTC, and can execute Apache Ant, Apache Maven and sbt based projects as well as arbitrary shell scripts and Windows batch commands.</p>
+
+        <p>It is used by several organizations globally and a quick Shodan search gives over 300,000 instances publicly accessible over the internet.</p>
+
+        <figure><img src="https://web.archive.org/web/20230529060216im_/https://theinfoseccom.files.wordpress.com/2017/06/usage_.png?w=750" alt="usage_" loading="lazy" /></figure>
+
+        <p>We shift focus quickly to see if there are some portal instances on port 8081 and the figure goes down..</p>
+
+        <figure><img src="https://web.archive.org/web/20230529060216im_/https://theinfoseccom.files.wordpress.com/2017/06/8081.png?w=750" alt="8081" loading="lazy" /></figure>
+
+        <p>Of these, some require credentials…..and some don’t 🙂 …some even have the <strong><span style="text-decoration:underline;">Manage Jenkins</span> </strong>option which simply means among other things we are a somewhat privileged user (eg jenkins user) and can install plugins of choice.</p>
+
+        <figure><img src="https://web.archive.org/web/20230529060216im_/https://theinfoseccom.files.wordpress.com/2017/06/good-dash_.png?w=750" alt="good dash_" loading="lazy" /></figure>
+
+        <p>Most people I know would opt to install terminal plugin..for obvious reasons..</p>
+
+        <figure><img src="https://web.archive.org/web/20230529060216im_/https://theinfoseccom.files.wordpress.com/2017/06/manage-plugins_.png?w=750" alt="manage plugins_" loading="lazy" /></figure>
+
+        <p>Running some commands.. :-O</p>
+
+        <figure><img src="https://web.archive.org/web/20230529060216im_/https://theinfoseccom.files.wordpress.com/2017/06/commands_.png?w=750" alt="commands_" loading="lazy" /></figure>
+
+        <p>Enough!</p>
+
+        <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
+          Originally published on <a href="https://the-infosec.com/2017/06/22/from-shodan-to-remote-code-execution-1-hacking-jenkins/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
         </div>
+
       </div>
       <div class="article-nav reveal reveal-delay-2">
         <a href="../index.html#blog" class="back-to-blog">
@@ -84,7 +109,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Alfie Njeru | the-infosec.com · Securing Digital Solutions</p>
+        <p>&copy; 2026 Alfie Njeru | the-infosec.com &middot; Securing Digital Solutions</p>
       </div>
     </div>
   </footer>

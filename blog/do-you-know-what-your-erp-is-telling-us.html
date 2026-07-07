@@ -37,21 +37,101 @@
       <div class="article-header reveal">
         <div class="article-meta">
           <span class="article-date">March 2017</span>
+          <span style="color: var(--gray-400);">&#183;</span><span style="color: var(--gray-400);">4 min read</span>
         </div>
         <h1>Do You Know What Your ERP Is Telling Us?</h1>
+        
       </div>
       <div class="article-content reveal reveal-delay-1">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">Auditing Oracle E-Business Suite from an insider threat and external attacker perspective, uncovering information disclosure in ERP systems.</p>
-        
-        <div class="archive-notice" style="background: rgba(255,255,255,0.03); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 48px;">
-          <h3 style="margin-top: 0;">Archive Notice</h3>
-          <p>This article was originally published on the legacy WordPress blog. The content is currently preserved in archive format.</p>
-          <p>You can view the original snapshot, complete with any images and comments, on the Wayback Machine:</p>
-          <a href="https://web.archive.org/web/2024/https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; margin-top: 16px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 20px; height: 20px; margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-            View Full Archive
-          </a>
+
+        <p>Interesting engagement I had a few weeks ago, a client wanted assurance on their ERP – Oracle E-Business suite, to be specific. I spent a few weeks just to formulate an efficient strategy and be able to cover most controls from an insider threat perspective and an external authenticated attacker angle.</p>
+
+        <p>For this post, I shall focus on an external unauthenticated attacker angle with a bias to information disclosure, hence the title. No intrusion – give us consent to your environment and I shall be happy to demo. 🙂</p>
+
+        <p>The Oracle EBS suite is a pretty massive estate – version 11 for instance is reported to have around 15000 JSP files, 800 enabled PL/SQL packages and procedures,countless forms, countless servlets etc. This, ofcourse, increases the attack surface considerably: attackers are happy, blue teamers should be worried.</p>
+
+        <p>Before we dive in to Oracle EBS, I should say SAP also has its own vulnerabilities too, which I should cover in coming weeks especially around permissions, storage of passwords and use of default user credentials –<a href="https://web.archive.org/web/20250606032112/https://help.sap.com/saphelp_nw70/helpdata/en/3e/cdaccbedc411d3a6510000e835363f/content.htm" rel="noopener" target="_blank">SAP, DDIC, EARLYWATCH</a>, anyone?</p>
+
+        <p><em>What info can we get from Oracle EBS version 11 as an external unauthenticated user?</em></p>
+
+        <ol>
+          <li>Log files:</li>
+        </ol>
+
+        <p>What do most log files usually have? username, source IP/name, destination IP/name, protocols in use, descriptive error messages, service name/properties, right? What if I told you can get all that as an unauthenticated external user?</p>
+
+        <figure><img src="https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/sqlnetlog_edit.png?w=750" alt="sqlnetlog_edit" loading="lazy" /></figure>
+
+        <p>Focus on the blurred parameters and the framed items in the screenshot. Lots of (useful) information, don’t you think?</p>
+
+        <p><strong>         2. <span style="text-decoration:underline;">Upload folder</span></strong></p>
+
+        <p>As an unauthenticated user i.e. guest user one is able to reach an upload page…</p>
+
+        <figure><img src="https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/upload_master_edit2.png?w=750" alt="upload_master_edit" loading="lazy" /></figure>
+
+        <p>Looking closely, we can see that we are authenticated.. It would interest you to find out what you can upload and how it impacts the security of your EBS suite. As earlier <em>promised?</em>, I won’t delve much into the exploitation, but rather focus on the amount of information an unauthenticated attacker has access to.</p>
+
+        <p><strong>         3. <span style="text-decoration:underline;">Cookie properties:</span></strong></p>
+
+        <p>Any attacker loves cookies. Main reason: they hold keys to sessions:</p>
+
+        <figure><img src="https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/cookies_edit.png?w=750" alt="cookies_edit" loading="lazy" /></figure>
+
+        <p><strong>         4. <span style="text-decoration:underline;">Create form:</span></strong></p>
+
+        <p>Want to create a form? As an unauthenticated user? No problem</p>
+
+        <figure><img src="https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/createform_edit.png?w=750" alt="createform_edit" loading="lazy" /></figure>
+
+        <p><strong>           5. <span style="text-decoration:underline;">Status of servlets:</span></strong></p>
+
+        <p>Want to know version of servlets and if they are working? No problem!</p>
+
+        <figure><img src="https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/working_edit.png?w=750" alt="working_edit" loading="lazy" /></figure>
+
+        <p><strong>               6. <span style="text-decoration:underline;"> A few configuration files:</span></strong></p>
+
+        <figure><img src="https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/pasta_edit1.png?w=750" alt="pasta_edit" loading="lazy" /></figure>
+
+        <p><strong>                7. <span style="text-decoration:underline;">Version disclosure:</span></strong></p>
+
+        <figure><img src="https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/servlet-version_edit.png?w=750" alt="servlet version_edit" loading="lazy" /></figure>
+
+        <p>8. <span style="text-decoration:underline;"><strong>Diagnostics page:</strong></span></p>
+
+        <p>A cool diagnostics page to get even more information 🙂</p>
+
+        <figure><img src="https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/aol-test_edit.png?w=750" alt="AOL test_edit" loading="lazy" /></figure>
+
+        <p>8. <span style="text-decoration:underline;">Username and Passwords:</span></p>
+
+        <p>Saving the best for last – username and passwords!!!!!!</p>
+
+        <figure><img src="https://web.archive.org/web/20250606032112im_/https://the-infosec.com/wp-content/uploads/2017/03/passwords_edit.png?w=750" alt="Passwords_edit" loading="lazy" /></figure>
+
+        <p>The above passwords are SHA-1 encrypted and are easily decrypted. As a matter of fact the above are the default passwords shipped with the Oracle installation.</p>
+
+        <p>Remember this is just got by sampling some of the JSPs, servlets and forms. It is not realistic to scope in an engagement for all the JSPs as an external infosec consultant. As a resident infosec engineer, I would be keen on all the services, JSPs, servlets, forms etc. Remember: <em>attackers need to get it right only <span style="text-decoration:underline;"><strong>once</strong></span>, blue team needs to get it right <span style="text-decoration:underline;"><strong>ALL</strong> </span>the time.</em></p>
+
+        <p>Also, keep in mind while doing a security audit for an ERP, focus is how much data can we get and not necessarily an OS shell.</p>
+
+        <p>This post wouldn’t be complete without some mitigating controls:</p>
+
+        <ul>
+          <li>Reduce attacker surface by removing the JSPs, servlets, services, forms not in use. This should be a well planned operation and involvement from the business is key. Trust me you should be able to reduce attack surface by up to 95%. I would be happy to hearfeedbackon this..:-)</li>
+          <li>Apply periodic Oracle EBS critical patch updates CPUs – this is very key.</li>
+          <li>Block access to links that an unauthenticated user wouldn’t need access to – you could start with the ones demonstrated in this post and others that you discover; create a custom 404 page to redirect traffic to these pages.</li>
+          <li>Review access logs and disable unnecessary access</li>
+        </ul>
+
+        <p>I should be putting up another post on the EBS version 12 pretty soon…cheers!</p>
+
+        <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
+          Originally published on <a href="https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
         </div>
+
       </div>
       <div class="article-nav reveal reveal-delay-2">
         <a href="../index.html#blog" class="back-to-blog">
@@ -84,7 +164,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Alfie Njeru | the-infosec.com · Securing Digital Solutions</p>
+        <p>&copy; 2026 Alfie Njeru | the-infosec.com &middot; Securing Digital Solutions</p>
       </div>
     </div>
   </footer>

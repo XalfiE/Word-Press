@@ -1,7 +1,16 @@
+"""
+Generate blog article HTML pages from articles.json.
+Articles with full content are rendered inline.
+Articles without content (empty content array) show an archive notice.
+"""
 import json
 import os
+import math
+import html as html_module
 
-template = """<!DOCTYPE html>
+# ── HTML Template ──
+# Shared structure for all blog pages
+PAGE_TOP = """<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -40,12 +49,16 @@ template = """<!DOCTYPE html>
       <div class="article-header reveal">
         <div class="article-meta">
           <span class="article-date">{date}</span>
+          {reading_time_html}
         </div>
         <h1>{title}</h1>
+        {tags_html}
       </div>
       <div class="article-content reveal reveal-delay-1">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">{description}</p>
-        
+"""
+
+ARCHIVE_NOTICE = """
         <div class="archive-notice" style="background: rgba(255,255,255,0.03); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 48px;">
           <h3 style="margin-top: 0;">Archive Notice</h3>
           <p>This article was originally published on the legacy WordPress blog. The content is currently preserved in archive format.</p>
@@ -55,6 +68,15 @@ template = """<!DOCTYPE html>
             View Full Archive
           </a>
         </div>
+"""
+
+ORIGINALLY_PUBLISHED = """
+        <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
+          Originally published on <a href="{archive_url}" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
+        </div>
+"""
+
+PAGE_BOTTOM = """
       </div>
       <div class="article-nav reveal reveal-delay-2">
         <a href="../index.html#blog" class="back-to-blog">
@@ -87,7 +109,7 @@ template = """<!DOCTYPE html>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Alfie Njeru | the-infosec.com · Securing Digital Solutions</p>
+        <p>&copy; 2026 Alfie Njeru | the-infosec.com &middot; Securing Digital Solutions</p>
       </div>
     </div>
   </footer>
@@ -95,35 +117,155 @@ template = """<!DOCTYPE html>
 </body>
 </html>"""
 
-articles = [
-    {'slug': 'password-complexity-reuse-audit-tool', 'title': 'Password Complexity & Reuse Audit Tool', 'date': 'October 2025', 'desc': 'A deep dive into auditing cracked credentials for password strength, complexity patterns, and reuse detection across enterprise environments.', 'url': 'https://web.archive.org/web/2025/https://the-infosec.com/2025/10/30/password-complexity-reuse-audit-tool/'},
-    {'slug': 'automating-cisco-configuration-audits', 'title': 'Automating Cisco Configuration Audits', 'date': 'March 2025', 'desc': 'Strengthen your Cisco network by automating configuration audits with ease. A practical guide to security compliance checking.', 'url': 'https://web.archive.org/web/2025/https://the-infosec.com/2025/03/14/strengthen-your-cisco-network-automating-configuration-audits-with-ease/'},
-    {'slug': 'fortigate-configuration-audit-tool', 'title': 'FortiGate Configuration Files Audit Tool (FCFAT)', 'date': 'March 2025', 'desc': 'Enhancing firewall security with automated analysis of FortiGate configuration files for misconfigurations and compliance gaps.', 'url': 'https://web.archive.org/web/2025/https://the-infosec.com/2025/03/14/fortigate-configuration-files-audit-tool-fcfat-enhancing-firewall-security-with-automated-analysis/'},
-    {'slug': 'oracle-ebs-security-auditing', 'title': 'Oracle EBS Security Auditing', 'date': 'November 2018', 'desc': 'An in-depth approach to auditing Oracle E-Business Suite, covering default credentials, weak passwords, application-level tests and database security controls.', 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2018/11/06/oracle-ebs-security-auditing/'},
-    {'slug': 'from-shodan-to-rce-3-belkin-routers', 'title': 'From Shodan to RCE #3: Hacking the Belkin N600DB Wireless Router', 'date': 'January 2018', 'desc': 'The third instalment of the Shodan to RCE series, discovering and exploiting vulnerabilities in Belkin routers found exposed on the internet.', 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2018/01/18/from-shodan-to-rce-3-hacking-belkin-routers/'},
-    {'slug': 'blackhat-europe-2017-conference-notes', 'title': 'Blackhat Europe 2017 – Conference Notes', 'date': 'December 2017', 'desc': 'Key takeaways from Blackhat Europe 2017 in London, with links to slide decks, videos, and tools from briefings and demonstrations.', 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2017/12/29/blackhat-europe-2017-conference-notes/'},
-    {'slug': 'from-shodan-to-rce-1-hacking-jenkins', 'title': 'From Shodan to Remote Code Execution #1 – Hacking Jenkins', 'date': 'June 2017', 'desc': 'Exploring how misconfigured Jenkins automation servers exposed on the internet can lead to full remote code execution.', 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2017/06/22/from-shodan-to-remote-code-execution-1-hacking-jenkins/'},
-    {'slug': 'samba-cve-2017-7494', 'title': 'SAMBAry Save Us!! (CVE-2017-7494)', 'date': 'May 2017', 'desc': 'Exploiting the Samba remote code execution vulnerability (CVE-2017-7494), where all versions from 3.5.0 onwards were vulnerable to a malicious shared library upload attack.', 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2017/05/26/samba-cve-2017-7494/'},
-    {'slug': 'from-shodan-to-rce-2-opendreambox', 'title': 'From Shodan to RCE #2 – Hacking OpenDreambox 2.0.0', 'date': 'May 2017', 'desc': 'The second part of the Shodan to RCE series, exploiting misconfigured Dreambox digital TV set-top boxes for remote code execution.', 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2017/05/12/from-shodan-to-rce-opendreambox-2-0-0-code-execution/'},
-    {'slug': 'exploiting-windows-eternalblue-doublepulsar', 'title': 'Exploiting Windows with Eternalblue & Doublepulsar with Metasploit', 'date': 'May 2017', 'desc': "Hands-on walkthrough of the NSA's EternalBlue and DoublePulsar exploits using Metasploit, the tools behind the WannaCry outbreak.", 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2017/05/01/exploiting-windows-with-eternalblue-and-doublepulsar-with-metasploit/'},
-    {'slug': 'penetration-testing-sharepoint', 'title': 'Penetration Testing Sharepoint', 'date': 'April 2017', 'desc': 'Reconnaissance and security testing techniques for Microsoft Sharepoint, using Google dorks and OWASP Top 10 vulnerability checks.', 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2017/04/18/penetration-testing-sharepoint/'},
-    {'slug': 'word-heist', 'title': 'Word Heist!', 'date': 'April 2017', 'desc': 'Leveraging MS Word documents for social engineering, capturing NTLM hashes without macros using a clever spear-phishing technique.', 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2017/04/04/word-heist/'},
-    {'slug': 'do-you-know-what-your-erp-is-telling-us', 'title': 'Do You Know What Your ERP Is Telling Us?', 'date': 'March 2017', 'desc': 'Auditing Oracle E-Business Suite from an insider threat and external attacker perspective, uncovering information disclosure in ERP systems.', 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/'},
-    {'slug': 'lateral-movement-part-ii', 'title': 'Lateral Movement: Part II', 'date': 'March 2017', 'desc': 'Continuation of the lateral movement series, focusing on techniques for privilege escalation and moving through a Windows domain environment.', 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2017/03/26/lateral-movement-part-ii/'},
-    {'slug': 'should-we-be-worried-huawei-router-part-ii', 'title': 'Should We Be Worried? Huawei Router: Part II', 'date': 'March 2017', 'desc': 'Digging into the Huawei HG8245H router configuration, analysing suspicious parameters like X_HW_MonitorCollector and external server URLs.', 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2017/03/23/should-we-be-worried-huawei-router-part-ii/'},
-    {'slug': 'auditing-linux-unix-os-120-seconds', 'title': 'Auditing Linux/Unix OS in 120 Seconds Flat', 'date': 'March 2017', 'desc': 'A baseline security auditing script for Linux and Unix operating systems, modelled around CIS benchmark controls that runs in under 2 minutes.', 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2017/03/20/auditing-linux-unix-os-in-120-seconds-flat/'},
-    {'slug': 'huawei-hg8245h-router-privilege-escalation', 'title': 'Huawei HG8245H Router "Privilege Escalation": Part I', 'date': 'March 2017', 'desc': 'Exploring the Huawei HG8245H home router, from default credentials to privilege escalation and full configuration extraction.', 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2017/03/20/huawei-hg8245h-router-privilege-escalatio/'},
-    {'slug': 'lateral-movement-part-i', 'title': 'Lateral Movement: Part I', 'date': 'January 2017', 'desc': 'How a normal domain user with no admin privileges can exploit Group Policy Preferences (GPP) passwords to become local administrator across the organisation.', 'url': 'https://web.archive.org/web/2024/https://the-infosec.com/2017/01/02/lateral-movement-part-i/'}
-]
 
-for a in articles:
-    content = template.format(
-        title=a['title'],
-        date=a['date'],
-        description=a['desc'],
-        archive_url=a['url']
+def escape(text):
+    """HTML-escape text for safe insertion."""
+    return html_module.escape(str(text))
+
+
+def estimate_reading_time(content_blocks):
+    """Estimate reading time based on word count across all text blocks."""
+    word_count = 0
+    for block in content_blocks:
+        if block.get('text'):
+            word_count += len(block['text'].split())
+        if block.get('items'):
+            for item in block['items']:
+                word_count += len(item.split())
+    minutes = max(1, math.ceil(word_count / 200))
+    return minutes
+
+
+def render_content_blocks(blocks):
+    """Convert structured content blocks to HTML."""
+    html_parts = []
+
+    for block in blocks:
+        btype = block.get('type', '')
+
+        if btype == 'heading':
+            level = block.get('level', 2)
+            level = max(2, min(level, 4))  # Clamp to h2-h4
+            html_parts.append(f'        <h{level}>{escape(block["text"])}</h{level}>')
+
+        elif btype == 'paragraph':
+            text = block.get('html', escape(block.get('text', '')))
+            if text.strip():
+                html_parts.append(f'        <p>{text}</p>')
+
+        elif btype == 'code':
+            lang = escape(block.get('language', 'text'))
+            code_text = escape(block.get('text', ''))
+            html_parts.append(f'        <pre><code class="language-{lang}">{code_text}</code></pre>')
+
+        elif btype == 'image':
+            src = block.get('src', '')
+            alt = escape(block.get('alt', ''))
+            if src:
+                html_parts.append(f'        <figure><img src="{escape(src)}" alt="{alt}" loading="lazy" /></figure>')
+
+        elif btype == 'list':
+            tag = 'ol' if block.get('ordered') else 'ul'
+            items_html = '\n'.join(f'          <li>{escape(item)}</li>' for item in block.get('items', []))
+            html_parts.append(f'        <{tag}>\n{items_html}\n        </{tag}>')
+
+        elif btype == 'blockquote':
+            html_parts.append(f'        <blockquote><p>{escape(block.get("text", ""))}</p></blockquote>')
+
+        elif btype == 'table':
+            rows = block.get('rows', [])
+            if rows:
+                table_html = '        <div style="overflow-x: auto; margin: 32px 0;">\n        <table style="width: 100%; border-collapse: collapse;">\n'
+                for i, row in enumerate(rows):
+                    cell_tag = 'th' if i == 0 else 'td'
+                    cell_style = 'padding: 12px 16px; border: 1px solid rgba(255,255,255,0.1); text-align: left;'
+                    if i == 0:
+                        cell_style += ' background: rgba(255,255,255,0.05); font-weight: 600; color: white;'
+                    cells = ''.join(f'<{cell_tag} style="{cell_style}">{escape(c)}</{cell_tag}>' for c in row)
+                    table_html += f'          <tr>{cells}</tr>\n'
+                table_html += '        </table>\n        </div>'
+                html_parts.append(table_html)
+
+    return '\n\n'.join(html_parts)
+
+
+def render_tags(tags):
+    """Render tag badges."""
+    if not tags:
+        return ''
+    tag_items = ''.join(
+        f'<span style="display: inline-block; background: rgba(202,171,87,0.1); color: var(--gold-500); '
+        f'padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; '
+        f'margin: 4px 4px 0 0; border: 1px solid rgba(202,171,87,0.2);">{escape(tag)}</span>'
+        for tag in tags
     )
-    with open(f"blog/{a['slug']}.html", "w", encoding="utf-8") as f:
-        f.write(content)
+    return f'<div style="margin-top: 16px;">{tag_items}</div>'
 
-print("Generated 18 articles successfully.")
+
+def main():
+    # Load articles data
+    json_path = os.path.join('blog', 'articles.json')
+    with open(json_path, 'r', encoding='utf-8') as f:
+        articles = json.load(f)
+
+    full_count = 0
+    stub_count = 0
+
+    for article in articles:
+        slug = article['slug']
+        title = article['title']
+        date = article['date']
+        desc = article['description']
+        archive_url = article.get('archive_url', '')
+        tags = article.get('tags', [])
+        content = article.get('content', [])
+
+        has_content = len(content) > 0
+
+        # Reading time
+        if has_content:
+            minutes = estimate_reading_time(content)
+            reading_time_html = (
+                f'<span style="color: var(--gray-400);">&#183;</span>'
+                f'<span style="color: var(--gray-400);">{minutes} min read</span>'
+            )
+        else:
+            reading_time_html = ''
+
+        # Tags
+        tags_html = render_tags(tags)
+
+        # Build the page top
+        page = PAGE_TOP.format(
+            title=escape(title),
+            date=escape(date),
+            description=escape(desc),
+            reading_time_html=reading_time_html,
+            tags_html=tags_html,
+        )
+
+        # Content body
+        if has_content:
+            page += '\n' + render_content_blocks(content) + '\n'
+            if archive_url:
+                page += ORIGINALLY_PUBLISHED.format(archive_url=escape(archive_url))
+            full_count += 1
+        else:
+            page += ARCHIVE_NOTICE.format(archive_url=escape(archive_url))
+            stub_count += 1
+
+        # Page bottom
+        page += PAGE_BOTTOM
+
+        # Write file
+        filepath = os.path.join('blog', f'{slug}.html')
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(page)
+
+    print(f"Generated {len(articles)} articles:")
+    print(f"  - {full_count} with full content")
+    print(f"  - {stub_count} archive stubs")
+
+
+if __name__ == '__main__':
+    main()

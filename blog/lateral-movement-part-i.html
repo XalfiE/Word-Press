@@ -37,21 +37,90 @@
       <div class="article-header reveal">
         <div class="article-meta">
           <span class="article-date">January 2017</span>
+          <span style="color: var(--gray-400);">&#183;</span><span style="color: var(--gray-400);">4 min read</span>
         </div>
         <h1>Lateral Movement: Part I</h1>
+        
       </div>
       <div class="article-content reveal reveal-delay-1">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">How a normal domain user with no admin privileges can exploit Group Policy Preferences (GPP) passwords to become local administrator across the organisation.</p>
-        
-        <div class="archive-notice" style="background: rgba(255,255,255,0.03); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 48px;">
-          <h3 style="margin-top: 0;">Archive Notice</h3>
-          <p>This article was originally published on the legacy WordPress blog. The content is currently preserved in archive format.</p>
-          <p>You can view the original snapshot, complete with any images and comments, on the Wayback Machine:</p>
-          <a href="https://web.archive.org/web/2024/https://the-infosec.com/2017/01/02/lateral-movement-part-i/" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; margin-top: 16px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 20px; height: 20px; margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-            View Full Archive
-          </a>
+
+        <h2>Introduction</h2>
+
+        <p>In penetration testing engagements, one of the most critical phases after initial access is <strong>lateral movement</strong>. This is the process of moving through a network from one compromised host to another, escalating privileges along the way. In this first part of the lateral movement series, we focus on a well-known but still frequently exploited weakness: <strong>Group Policy Preferences (GPP) passwords</strong>.</p>
+
+        <h2>What Are Group Policy Preferences?</h2>
+
+        <p>Group Policy Preferences (GPP) is a feature in Active Directory that allows administrators to configure and deploy settings across domain-joined machines. One of its features allowed administrators to set local account passwords through Group Policy. The password was stored in an XML file on the SYSVOL share, encrypted with a known AES key.</p>
+
+        <p>The problem? Microsoft published the AES key in their MSDN documentation. This means <strong>any authenticated domain user</strong> can read the XML file from SYSVOL and decrypt the password.</p>
+
+        <h2>The Attack</h2>
+
+        <h3>Step 1: Enumerate SYSVOL</h3>
+
+        <p>As a normal domain user, you have read access to the SYSVOL share by default. Navigate to the Groups.xml file (or other policy preference XML files) that may contain stored credentials:</p>
+
+        <pre style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06); overflow-x: auto;"><code>\\&lt;DOMAIN&gt;\SYSVOL\&lt;DOMAIN&gt;\Policies\{GUID}\Machine\Preferences\Groups\Groups.xml</code></pre>
+
+        <p>Other common locations include:</p>
+
+        <ul>
+          <li><code>Services\Services.xml</code> (service account passwords)</li>
+          <li><code>ScheduledTasks\ScheduledTasks.xml</code> (scheduled task credentials)</li>
+          <li><code>DataSources\DataSources.xml</code> (database connection strings)</li>
+          <li><code>Drives\Drives.xml</code> (mapped drive credentials)</li>
+        </ul>
+
+        <h3>Step 2: Extract the Encrypted Password</h3>
+
+        <p>The XML file contains a <code>cpassword</code> attribute that holds the AES-256 encrypted password. This value looks like a Base64 encoded string.</p>
+
+        <h3>Step 3: Decrypt the Password</h3>
+
+        <p>Using the publicly known AES key, the password can be decrypted. Several tools automate this process:</p>
+
+        <ul>
+          <li><strong>gpp-decrypt</strong> (built into Kali Linux)</li>
+          <li><strong>Get-GPPPassword</strong> (PowerSploit module)</li>
+          <li><strong>Metasploit</strong> auxiliary module: <code>post/windows/gather/credentials/gpp</code></li>
+        </ul>
+
+        <h3>Step 4: Lateral Movement</h3>
+
+        <p>If the GPP password was used to set a local administrator password, this same password is now valid on every machine where the policy was applied. This means you can use it to authenticate to other domain machines using:</p>
+
+        <ul>
+          <li>PsExec</li>
+          <li>WMI</li>
+          <li>WinRM</li>
+          <li>Pass-the-Hash techniques</li>
+        </ul>
+
+        <p>From a single normal domain user account, you now have <strong>local administrator access</strong> across potentially the entire organisation.</p>
+
+        <h2>Why Does This Still Work?</h2>
+
+        <p>Microsoft released patch MS14-025 in 2014 that prevents new GPP password policies from being created. However, the patch does <strong>not</strong> remove existing XML files from SYSVOL. Many organisations that applied the patch never cleaned up the old policy files, leaving the credentials sitting in SYSVOL for years.</p>
+
+        <h2>Remediation</h2>
+
+        <ul>
+          <li><strong>Delete existing GPP XML files</strong> containing <code>cpassword</code> attributes from SYSVOL.</li>
+          <li><strong>Apply MS14-025</strong> if not already applied.</li>
+          <li><strong>Use LAPS</strong> (Local Administrator Password Solution) to manage local admin passwords with unique, rotating credentials per machine.</li>
+          <li><strong>Audit SYSVOL</strong> regularly for sensitive data exposure.</li>
+          <li><strong>Change any passwords</strong> that were previously stored in GPP.</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+
+        <p>GPP password exploitation remains one of the quickest wins in internal penetration tests. It demonstrates how a single overlooked configuration can give an unprivileged user full control over an entire domain's workstations. In Part II of this series, we will explore additional lateral movement techniques for escalating further within a Windows domain environment.</p>
+
+        <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
+          Originally published on <a href="https://the-infosec.com/2017/01/02/lateral-movement-part-i/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
         </div>
+
       </div>
       <div class="article-nav reveal reveal-delay-2">
         <a href="../index.html#blog" class="back-to-blog">
@@ -84,7 +153,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Alfie Njeru | the-infosec.com · Securing Digital Solutions</p>
+        <p>&copy; 2026 Alfie Njeru | the-infosec.com &middot; Securing Digital Solutions</p>
       </div>
     </div>
   </footer>

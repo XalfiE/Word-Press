@@ -37,21 +37,36 @@
       <div class="article-header reveal">
         <div class="article-meta">
           <span class="article-date">March 2017</span>
+          <span style="color: var(--gray-400);">&#183;</span><span style="color: var(--gray-400);">1 min read</span>
         </div>
         <h1>Should We Be Worried? Huawei Router: Part II</h1>
+        
       </div>
       <div class="article-content reveal reveal-delay-1">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">Digging into the Huawei HG8245H router configuration, analysing suspicious parameters like X_HW_MonitorCollector and external server URLs.</p>
-        
-        <div class="archive-notice" style="background: rgba(255,255,255,0.03); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 48px;">
-          <h3 style="margin-top: 0;">Archive Notice</h3>
-          <p>This article was originally published on the legacy WordPress blog. The content is currently preserved in archive format.</p>
-          <p>You can view the original snapshot, complete with any images and comments, on the Wayback Machine:</p>
-          <a href="https://web.archive.org/web/2024/https://the-infosec.com/2017/03/23/should-we-be-worried-huawei-router-part-ii/" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; margin-top: 16px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 20px; height: 20px; margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-            View Full Archive
-          </a>
+
+        <p>This is a follow-up of this <a href="https://the-infosec.com/2017/03/20/huawei-hg8245h-router-privilege-escalatio/" target="_blank">post.</a>..</p>
+
+        <p>Good. Now we are at par.</p>
+
+        <p>After getting the router config as in the earlier post, I got to comb through the router config. Interesting things, I tell you.</p>
+
+        <p>One of the parameters, <strong>X_HW_MonitorCollector </strong>has a server URL of <strong>yjyx.gd.edatahome.com</strong> and a <strong>tftp</strong> port of <strong>6169</strong>.</p>
+
+        <figure><img src="https://web.archive.org/web/20250823095551im_/https://the-infosec.com/wp-content/uploads/2017/03/edatahome.png?w=1047&amp;h=234" alt="edatahome" loading="lazy" /></figure>
+
+        <p>As shown above, the setting for this configuration <em>seems </em>disabled as the <strong>Enable </strong>switch is set at <strong>0, </strong>and the number of entries being monitored is set at<strong> 0. </strong>Maybe we should rest easy?Should we?</p>
+
+        <p>A quick whois check of edatahome.com is as below.</p>
+
+        <figure><img src="https://web.archive.org/web/20250823095551im_/https://the-infosec.com/wp-content/uploads/2017/03/edatahome2.png?w=750" alt="edatahome2" loading="lazy" /></figure>
+
+        <p>Hmmm….should we be worried?</p>
+
+        <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
+          Originally published on <a href="https://the-infosec.com/2017/03/23/should-we-be-worried-huawei-router-part-ii/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
         </div>
+
       </div>
       <div class="article-nav reveal reveal-delay-2">
         <a href="../index.html#blog" class="back-to-blog">
@@ -84,7 +99,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Alfie Njeru | the-infosec.com · Securing Digital Solutions</p>
+        <p>&copy; 2026 Alfie Njeru | the-infosec.com &middot; Securing Digital Solutions</p>
       </div>
     </div>
   </footer>
