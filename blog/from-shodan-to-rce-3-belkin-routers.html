@@ -16,8 +16,7 @@
       <a href="../index.html" class="nav-logo">
         <div class="logo-icon">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v4.7c0 4.83-3.23 9.36-7 10.57-3.77-1.21-7-5.74-7-10.57V6.3l7-3.12z"/><path d="M12 7a3 3 0 00-3 3v1H8v5h8v-5h-1v-1a3 3 0 00-3-3zm1 4h-2v-1a1 1 0 112 0v1z"/></svg>
-        </div>
-        the-<span>infosec</span>
+        </div><span>the-<span>infosec</span></span>
       </a>
       <div class="nav-links" id="navLinks">
         <a href="../index.html">Home</a>
@@ -37,68 +36,22 @@
       <div class="article-header reveal">
         <div class="article-meta">
           <span class="article-date">January 2018</span>
-          <span style="color: var(--gray-400);">&#183;</span><span style="color: var(--gray-400);">3 min read</span>
+          
         </div>
-        <h1>From Shodan to Remote Code Execution #3: Hacking the Belkin N600DB Wireless Router</h1>
+        <h1>From Shodan to RCE #3: Hacking the Belkin N600DB Wireless Router</h1>
         
       </div>
       <div class="article-content reveal reveal-delay-1">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">The third instalment of the Shodan to RCE series, discovering and exploiting vulnerabilities in Belkin routers found exposed on the internet.</p>
 
-        <p>Our newest post of this interesting series of Shodan to RCE takes us to Belkin routers. As with the previous instalments, the goal is to demonstrate how misconfigured or vulnerable devices that are accessible from the internet can be identified using Shodan and subsequently exploited.</p>
-
-        <h2>Shodan Search</h2>
-
-        <p>The search query used to locate Belkin routers on Shodan was:</p>
-
-        <pre style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.06); overflow-x: auto;"><code>"Server: httpd" "Cache-Control: no-cache,no-store,must-revalidate, post-check=0,pre-check=0" "100-index.htm"</code></pre>
-
-        <p>As at the time of writing this post, there were not so many results for the Belkin routers. By navigating to one of the Shodan search results, we may get access to the router's web administration panel.</p>
-
-        <h2>Accessing the Router</h2>
-
-        <p>The Belkin N600DB router exposes its web interface on the default HTTP port. In many cases, these routers are deployed with default credentials or no authentication at all. Once accessed, the administration panel reveals sensitive network configuration details including:</p>
-
-        <ul>
-          <li>Wireless network SSIDs and passwords in plain text</li>
-          <li>Connected device lists with MAC addresses</li>
-          <li>DNS configuration and port forwarding rules</li>
-          <li>Firmware version information useful for identifying known CVEs</li>
-        </ul>
-
-        <h2>Exploitation</h2>
-
-        <p>With access to the administration panel, several attack vectors become available:</p>
-
-        <ul>
-          <li><strong>Credential Harvesting:</strong> WiFi passwords and any saved credentials are often visible in the configuration pages.</li>
-          <li><strong>DNS Hijacking:</strong> Modifying the DNS settings allows an attacker to redirect all traffic from connected devices to malicious servers.</li>
-          <li><strong>Firmware Manipulation:</strong> Some Belkin models allow firmware updates through the web interface, potentially enabling persistent backdoor installation.</li>
-          <li><strong>Network Pivoting:</strong> The compromised router can serve as a pivot point into the internal network behind it.</li>
-        </ul>
-
-        <h2>Impact</h2>
-
-        <p>A compromised home or small office router gives an attacker full visibility and control over all network traffic. This includes the ability to intercept credentials, inject malicious content into web pages, and use the router as a launchpad for further attacks against devices on the local network.</p>
-
-        <h2>Remediation</h2>
-
-        <ul>
-          <li><strong>Change default credentials</strong> immediately upon deployment.</li>
-          <li><strong>Disable remote management</strong> from WAN interfaces.</li>
-          <li><strong>Update firmware</strong> to the latest version from the manufacturer.</li>
-          <li><strong>Use HTTPS</strong> for the administration interface where supported.</li>
-          <li><strong>Restrict access</strong> to the admin panel by IP or MAC address filtering.</li>
-        </ul>
-
-        <h2>Conclusion</h2>
-
-        <p>This third instalment of the Shodan to RCE series highlights that consumer-grade routers remain a soft target for attackers. The Belkin N600DB, like many other SOHO routers, ships with insecure defaults that are rarely changed by end users. The combination of Shodan's indexing capabilities and weak device security continues to expose thousands of networks to potential compromise.</p>
-
-        <p>Stay tuned for more in this series!</p>
-
-        <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
-          Originally published on <a href="https://the-infosec.com/2018/01/18/from-shodan-to-rce-3-hacking-belkin-routers/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
+        <div class="archive-notice" style="background: rgba(255,255,255,0.03); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 48px;">
+          <h3 style="margin-top: 0;">Archive Notice</h3>
+          <p>This article was originally published on the legacy WordPress blog. The content is currently preserved in archive format.</p>
+          <p>You can view the original snapshot, complete with any images and comments, on the Wayback Machine:</p>
+          <a href="https://web.archive.org/web/2024/https://the-infosec.com/2018/01/18/from-shodan-to-rce-3-hacking-belkin-routers/" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; margin-top: 16px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 20px; height: 20px; margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+            View Full Archive
+          </a>
         </div>
 
       </div>

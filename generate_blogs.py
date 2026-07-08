@@ -28,8 +28,7 @@ PAGE_TOP = """<!DOCTYPE html>
       <a href="../index.html" class="nav-logo">
         <div class="logo-icon">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v4.7c0 4.83-3.23 9.36-7 10.57-3.77-1.21-7-5.74-7-10.57V6.3l7-3.12z"/><path d="M12 7a3 3 0 00-3 3v1H8v5h8v-5h-1v-1a3 3 0 00-3-3zm1 4h-2v-1a1 1 0 112 0v1z"/></svg>
-        </div>
-        the-<span>infosec</span>
+        </div><span>the-<span>infosec</span></span>
       </a>
       <div class="nav-links" id="navLinks">
         <a href="../index.html">Home</a>
