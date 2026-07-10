@@ -33,25 +33,51 @@
 
   <article class="blog-article">
     <div class="container">
-      <div class="article-header reveal">
+      <div class="article-header">
         <div class="article-meta">
           <span class="article-date">January 2017</span>
-          
+          <span style="color: var(--gray-400);">&#183;</span><span style="color: var(--gray-400);">3 min read</span>
         </div>
         <h1>Lateral Movement: Part I</h1>
         
       </div>
-      <div class="article-content reveal reveal-delay-1">
+      <div class="article-content">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">How a normal domain user with no admin privileges can exploit Group Policy Preferences (GPP) passwords to become local administrator across the organisation.</p>
 
-        <div class="archive-notice" style="background: rgba(255,255,255,0.03); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 48px;">
-          <h3 style="margin-top: 0;">Archive Notice</h3>
-          <p>This article was originally published on the legacy WordPress blog. The content is currently preserved in archive format.</p>
-          <p>You can view the original snapshot, complete with any images and comments, on the Wayback Machine:</p>
-          <a href="https://web.archive.org/web/2024/https://the-infosec.com/2017/01/02/lateral-movement-part-i/" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; margin-top: 16px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 20px; height: 20px; margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-            View Full Archive
-          </a>
+        <p><strong>Scenario:</strong> you are a normal user in your company’s domain. No admin privileges. Nothing. You can’t even install a program on your machine. What if I told you that you can be the local administrator on your machine and probably on MANY more across your organization?</p>
+
+        <p>I am not able to count the number of things you are able to do as a local admin (evil / non-evil) :-)… for this post am going to demonstrate how to simply move from a normal user and gain local admin privileges. This is an attack vector I have been using in various security assessments I have been doing. Time to let the cat out of the bag… haha.</p>
+
+        <h2>What are Group Policy Preferences Passwords?</h2>
+
+        <p>In a nutshell, sys admins have 100 plus machines on a domain, and want to configure all the machines, chances are they are bound to use the same local admin password to install programs and configure the machines in the domain. They use the GPO to do this; hence the use of the Group Policy Preference Password to conveniently push same password to all hosts in the domain. Convenience at the expense of security – how many times do we see that??</p>
+
+        <h2>Ways to find the GPP password?</h2>
+
+        <p>To be honest, countless. But I shall show a few effective methods here:</p>
+
+        <h3>1. Manually traversing SYSVOL</h3>
+
+        <p>Traverse to <code>\\&lt;domain name&gt;\SYSVOL\&lt;domain name&gt;\Policies\</code> and look for *.xml files; specifically <code>Groups.xml</code> or <code>Services.xml</code>.</p>
+
+        <p>Opening one of the <code>Groups.xml</code> files we see a <code>cpassword</code> field which is encrypted. Game over? NO. Microsoft published the decryption AES key publicly – a whole 32-byte static AES key. Let that sink in. So basically decrypt and have your local administrator password… in <strong>CLEARTEXT</strong>.</p>
+
+        <h3>2. Using PowerShell Tools</h3>
+
+        <p>For rapid execution, there are multiple PowerShell tools to find and decrypt GPP passwords automatically. An example is <code>Get-GPPPassword.ps1</code> from PowerSploit.</p>
+
+        <h3>3. Metasploit &amp; Custom Finders</h3>
+
+        <p>Trust Metasploit not to get left out — <code>post/windows/gather/credentials/gpp</code> module can enumerate and decrypt <code>cpassword</code> entries automatically across SYSVOL shares.</p>
+
+        <h2>Now that we have the local admin password...</h2>
+
+        <p>The mere fact that you have got this password from GPP tells you one thing – chances are that it is used on most if not all machines in the domain! Think about the lateral movement that is possible, the dumping of credentials – Mimikatz across the entire estate.</p>
+
+        <p>Remember this is not a new attack vector; the reason I am highlighting this is because in almost every internal penetration testing assessment, this has been a recurring vulnerability.</p>
+
+        <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
+          Originally published on <a href="https://the-infosec.com/2017/01/02/lateral-movement-part-i/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
         </div>
 
       </div>

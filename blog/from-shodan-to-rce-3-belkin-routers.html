@@ -33,25 +33,51 @@
 
   <article class="blog-article">
     <div class="container">
-      <div class="article-header reveal">
+      <div class="article-header">
         <div class="article-meta">
           <span class="article-date">January 2018</span>
-          
+          <span style="color: var(--gray-400);">&#183;</span><span style="color: var(--gray-400);">1 min read</span>
         </div>
         <h1>From Shodan to RCE #3: Hacking the Belkin N600DB Wireless Router</h1>
         
       </div>
-      <div class="article-content reveal reveal-delay-1">
+      <div class="article-content">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">The third instalment of the Shodan to RCE series, discovering and exploiting vulnerabilities in Belkin routers found exposed on the internet.</p>
 
-        <div class="archive-notice" style="background: rgba(255,255,255,0.03); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 48px;">
-          <h3 style="margin-top: 0;">Archive Notice</h3>
-          <p>This article was originally published on the legacy WordPress blog. The content is currently preserved in archive format.</p>
-          <p>You can view the original snapshot, complete with any images and comments, on the Wayback Machine:</p>
-          <a href="https://web.archive.org/web/2024/https://the-infosec.com/2018/01/18/from-shodan-to-rce-3-hacking-belkin-routers/" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; margin-top: 16px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 20px; height: 20px; margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-            View Full Archive
-          </a>
+        <p>Our newest post of this interesting series of Shodan to RCE takes us to Belkin routers.</p>
+
+        <h2>Shodan Search Query</h2>
+
+        <p><code>"Server: httpd" "Cache-Control: no-cache,no-store,must-revalidate, post-check=0,pre-check=0" "100-index.htm"</code></p>
+
+        <p>As at the time of writing this post, there were not so many results for the Belkin routers )-:</p>
+
+        <p>By navigating to one of the shodan search results, we may get such a dashboard, which in itself may be reported as a security vulnerability? – unauthorized access?, information disclosure?</p>
+
+        <figure><img src="images/from-shodan-to-rce-3-belkin-routers__belkin-shodan-search.png" alt="Belkin Shodan Search Results" loading="lazy" /></figure>
+
+        <figure><img src="images/from-shodan-to-rce-3-belkin-routers__belkin-dashboard_.png" alt="Belkin Router Dashboard" loading="lazy" /></figure>
+
+        <h2>Getting Key: Method #1</h2>
+
+        <p>By navigating to the link <code>http://target/langchg.cgi</code> and viewing the page source:</p>
+
+        <figure><img src="images/from-shodan-to-rce-3-belkin-routers__key1_-e1516269108470.png" alt="Cleartext Wireless Key in langchg.cgi" loading="lazy" /></figure>
+
+        <p>The wireless key can be clearly seen in cleartext without any authentication required!</p>
+
+        <h2>Getting Key: Method #2</h2>
+
+        <p>By navigating to the link <code>http://target/adv_wifidef.cgi</code> and viewing the source:</p>
+
+        <figure><img src="images/from-shodan-to-rce-3-belkin-routers__key2_.png" alt="Cleartext Wireless Key in adv_wifidef.cgi" loading="lazy" /></figure>
+
+        <p>Again, the wireless network key can be clearly seen in the source code without authentication!</p>
+
+        <p>Credits to the exploit researcher: <strong>Wadeek</strong>.</p>
+
+        <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
+          Originally published on <a href="https://the-infosec.com/2018/01/18/from-shodan-to-rce-3-hacking-belkin-routers/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
         </div>
 
       </div>
