@@ -1,0 +1,20 @@
+{
+  "name": "word-press",
+  "version": "1.0.0",
+  "description": "Alfie Njeru - Cybersecurity Expert Portfolio",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "generate-blogs": "python3 generate_blogs.py"
+  },
+  "keywords": [
+    "cybersecurity",
+    "portfolio",
+    "infosec"
+  ],
+  "author": "Alfie Njeru",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/speed-insights": "^1.0.0"
+  }
+}
