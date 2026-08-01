@@ -45,7 +45,7 @@ PAGE_TOP = """<!DOCTYPE html>
 
   <article class="blog-article">
     <div class="container">
-      <div class="article-header reveal">
+      <div class="article-header">
         <div class="article-meta">
           <span class="article-date">{date}</span>
           {reading_time_html}
@@ -53,7 +53,7 @@ PAGE_TOP = """<!DOCTYPE html>
         <h1>{title}</h1>
         {tags_html}
       </div>
-      <div class="article-content reveal reveal-delay-1">
+      <div class="article-content">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">{description}</p>
 """
 
@@ -61,10 +61,10 @@ ARCHIVE_NOTICE = """
         <div class="archive-notice" style="background: rgba(255,255,255,0.03); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 48px;">
           <h3 style="margin-top: 0;">Archive Notice</h3>
           <p>This article was originally published on the legacy WordPress blog. The content is currently preserved in archive format.</p>
-          <p>You can view the original snapshot, complete with any images and comments, on the Wayback Machine:</p>
+          <p>You can view the original article on the-infosec.com:</p>
           <a href="{archive_url}" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; margin-top: 16px;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 20px; height: 20px; margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-            View Full Archive
+            View Original Article
           </a>
         </div>
 """

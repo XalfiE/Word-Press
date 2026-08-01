@@ -33,7 +33,7 @@
 
   <article class="blog-article">
     <div class="container">
-      <div class="article-header reveal">
+      <div class="article-header">
         <div class="article-meta">
           <span class="article-date">April 2017</span>
           <span style="color: var(--gray-400);">&#183;</span><span style="color: var(--gray-400);">2 min read</span>
@@ -41,7 +41,7 @@
         <h1>Penetration Testing Sharepoint</h1>
         
       </div>
-      <div class="article-content reveal reveal-delay-1">
+      <div class="article-content">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">Reconnaissance and security testing techniques for Microsoft Sharepoint, using Google dorks and OWASP Top 10 vulnerability checks.</p>
 
         <p>Like any normal web application, Sharepoint may fall prey to OWASP Top 10 vulnerabilities with a special focus on XSS, mostly due to inadequate patching and misconfiguration. On this post, we focus on recon / what sharepoint is exposing.</p>
@@ -50,13 +50,13 @@
 
         <p>Some google dorks to help you find sharepoint installations exposed to the web as below. It would be wise to add the parameters “site:yoursite.com &lt; then the below dorks&gt;” to narrow down the search and discover what your sharepoint installation is exposing to the public.</p>
 
-        <figure><img src="https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/google-dork1_.png?w=750" alt="google dork1_" loading="lazy" /></figure>
+        <figure><img src="https://web.archive.org/web/20230615000000if_/https://theinfoseccom.files.wordpress.com/2017/04/google-dork1_.png" alt="google dork1_" loading="lazy" /></figure>
 
-        <figure><img src="https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/dork4_.png?w=750" alt="dork4_" loading="lazy" /></figure>
+        <figure><img src="https://web.archive.org/web/20230615000000if_/https://theinfoseccom.files.wordpress.com/2017/04/dork4_.png" alt="dork4_" loading="lazy" /></figure>
 
-        <figure><img src="https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/googledork3_.png?w=750" alt="googledork3_" loading="lazy" /></figure>
+        <figure><img src="https://web.archive.org/web/20230615000000if_/https://theinfoseccom.files.wordpress.com/2017/04/googledork3_.png" alt="googledork3_" loading="lazy" /></figure>
 
-        <figure><img src="https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/googledorks2_.png?w=750" alt="googledorks2_" loading="lazy" /></figure>
+        <figure><img src="https://web.archive.org/web/20230615000000if_/https://theinfoseccom.files.wordpress.com/2017/04/googledorks2_.png" alt="googledorks2_" loading="lazy" /></figure>
 
         <p><strong>Fuzz:</strong></p>
 
@@ -71,11 +71,11 @@
 
         <p><strong>How?</strong></p>
 
-        <p>I prefer to use this <a href="https://web.archive.org/web/20230529062249/https://github.com/alienwithin/Scripts-Sploits/blob/master/giveWebHead.py">fuzzer</a>, but you can use dirbuster, fuzzdb etc. I have over time come up with a <a href="https://web.archive.org/web/20230529062249/https://github.com/XalfiE/Sharepoint-URL-Fuzzlist/tree/master">list</a> to feed the fuzzer.</p>
+        <p>I prefer to use this <a href="https://github.com/alienwithin/Scripts-Sploits/blob/master/giveWebHead.py">fuzzer</a>, but you can use dirbuster, fuzzdb etc. I have over time come up with a <a href="https://github.com/XalfiE/Sharepoint-URL-Fuzzlist/tree/master">list</a> to feed the fuzzer.</p>
 
         <p>Run the scanner as below and discover all the information that your sharepoint installation is exposing to the public 🙂</p>
 
-        <figure><img src="https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/scan_.png?w=750" alt="scan_" loading="lazy" /></figure>
+        <figure><img src="https://web.archive.org/web/20230615000000if_/https://theinfoseccom.files.wordpress.com/2017/04/scan_.png" alt="scan_" loading="lazy" /></figure>
 
         <p>Going to the pages with HTTP status code 200, we find:</p>
 
@@ -83,15 +83,15 @@
           <li>Frontpage server extensions and sharepoint versions:</li>
         </ol>
 
-        <figure><img src="https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/vti_inf_-html.png?w=750" alt="_vti_inf_.html" loading="lazy" /></figure>
+        <figure><img src="https://web.archive.org/web/20230615000000if_/https://theinfoseccom.files.wordpress.com/2017/04/vti_inf_-html.png" alt="_vti_inf_.html" loading="lazy" /></figure>
 
         <p>2. Sharepoint web services:</p>
 
-        <figure><img src="https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/vti_bin_spdisco_-aspx.png?w=750" alt="_vti_bin_spdisco_.aspx" loading="lazy" /></figure>
+        <figure><img src="https://web.archive.org/web/20230615000000if_/https://theinfoseccom.files.wordpress.com/2017/04/vti_bin_spdisco_-aspx.png" alt="_vti_bin_spdisco_.aspx" loading="lazy" /></figure>
 
         <p>3. Default layouts:</p>
 
-        <figure><img src="https://web.archive.org/web/20230529062249im_/https://theinfoseccom.files.wordpress.com/2017/04/viewlsts_.png?w=750" alt="viewlsts_" loading="lazy" /></figure>
+        <figure><img src="https://web.archive.org/web/20230615000000if_/https://theinfoseccom.files.wordpress.com/2017/04/viewlsts_.png" alt="viewlsts_" loading="lazy" /></figure>
 
         <p>etc…you get the drift.</p>
 
@@ -103,7 +103,7 @@
         </ul>
 
         <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
-          Originally published on <a href="https://web.archive.org/web/2024/https://the-infosec.com/2017/04/18/penetration-testing-sharepoint/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
+          Originally published on <a href="https://the-infosec.com/2017/04/18/penetration-testing-sharepoint/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
         </div>
 
       </div>

@@ -33,7 +33,7 @@
 
   <article class="blog-article">
     <div class="container">
-      <div class="article-header reveal">
+      <div class="article-header">
         <div class="article-meta">
           <span class="article-date">November 2018</span>
           <span style="color: var(--gray-400);">&#183;</span><span style="color: var(--gray-400);">2 min read</span>
@@ -41,10 +41,10 @@
         <h1>Oracle EBS Security Auditing</h1>
         
       </div>
-      <div class="article-content reveal reveal-delay-1">
+      <div class="article-content">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">An in-depth approach to auditing Oracle E-Business Suite, covering default credentials, weak passwords, application-level tests and database security controls.</p>
 
-        <p>So this is my attempt to improve on this <a href="https://web.archive.org/web/20250330183245/https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/">post</a> I wrote last year and other tests that I find helpful. Whatever is outlined here really is a tip of the iceberg and further tests should definitely be done depending on scope, objectives…</p>
+        <p>So this is my attempt to improve on this <a href="https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/">post</a> I wrote last year and other tests that I find helpful. Whatever is outlined here really is a tip of the iceberg and further tests should definitely be done depending on scope, objectives…</p>
 
         <p><strong>Application testing:</strong></p>
 
@@ -61,17 +61,17 @@
 
         <p><em><strong>Default application account credentials:</strong></em></p>
 
-        <p>I have created a list of common default accounts on the application and uploaded on <a href="https://web.archive.org/web/20250330183245/https://github.com/XalfiE/Oracle-EBS-Security-Audit">github</a>, feel free to add to the list / ping me on <a href="https://web.archive.org/web/20250330183245/https://twitter.com/emenalf">twitter</a>. TBH, this issue is quite common among most instances I have the pleasure of auditing and mostly gives you system administrator privileges on the portal.</p>
+        <p>I have created a list of common default accounts on the application and uploaded on <a href="https://github.com/XalfiE/Oracle-EBS-Security-Audit">github</a>, feel free to add to the list / ping me on <a href="https://twitter.com/emenalf">twitter</a>. TBH, this issue is quite common among most instances I have the pleasure of auditing and mostly gives you system administrator privileges on the portal.</p>
 
-        <p>Other tests to perform on the application to perhaps gain access are <a href="https://web.archive.org/web/20250330183245/https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/">here</a>.</p>
+        <p>Other tests to perform on the application to perhaps gain access are <a href="https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/">here</a>.</p>
 
         <p><strong>Solution: </strong> disable the default app accounts;</p>
 
         <p><em><strong>Weak application password controls</strong></em></p>
 
-        <p>Over and above the normal password complexity settings on the application, I found that if the passwords are not hashed and you have the <a href="https://web.archive.org/web/20250330183245/https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/">APPS password</a>, one could decrypt ALL the application user passwords!!</p>
+        <p>Over and above the normal password complexity settings on the application, I found that if the passwords are not hashed and you have the <a href="https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/">APPS password</a>, one could decrypt ALL the application user passwords!!</p>
 
-        <figure><img src="https://web.archive.org/web/20250330183245im_/https://the-infosec.com/wp-content/uploads/2018/11/no-hashed-e1541490051674.png?w=750" alt="no hashed" loading="lazy" /></figure>
+        <figure><img src="images/oracle-ebs-security-auditing__no-hashed-e1541490051674.png" alt="no hashed" loading="lazy" /></figure>
 
         <p><strong><em>Lack of patching:</em></strong></p>
 
@@ -87,13 +87,13 @@ ORDER BY creation_date DESC</p>
 
         <p>Lack of patching on the app leads to many  OWASP Top 10 vulnerabilities including but not limited to XSS, SQLis – most discovered by the guys below. A common example is the reflected XSS on the jtfLOVInProcess.jsp. Many other jsps on the EBS suffer from these issues. These include: ibeCZzpEntry.jsp, cskmrelstmts.jsp, cskmslctcat.jsp, cskmslctplat.jsp, csm5Sync.jsp, ibeCScdAgrmntDetail.jsp, ibutpqs.jsp, ieccaleassignexception.jsp and ieccaleexception.jsp</p>
 
-        <figure><img src="https://web.archive.org/web/20250330183245im_/https://the-infosec.com/wp-content/uploads/2018/11/xss.png?w=750" alt="XSS" loading="lazy" /></figure>
+        <figure><img src="images/oracle-ebs-security-auditing__xss.png" alt="XSS" loading="lazy" /></figure>
 
         <p><strong>Solution:</strong> Patch. Patch. Patch.</p>
 
         <p><em><strong>Directory listing / sensitive information exposure</strong></em></p>
 
-        <p>See post <a href="https://web.archive.org/web/20250330183245/https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/">here</a></p>
+        <p>See post <a href="https://the-infosec.com/2017/03/29/do-you-know-what-your-erp-is-telling-us/">here</a></p>
 
         <p><strong>Solution: </strong>Reduce the attack surface by removing the JSPs not in use.</p>
 
@@ -108,7 +108,7 @@ ORDER BY creation_date DESC</p>
         <p>&lt; Post in progress/&gt;</p>
 
         <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
-          Originally published on <a href="https://web.archive.org/web/2024/https://the-infosec.com/2018/11/06/oracle-ebs-security-auditing/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
+          Originally published on <a href="https://the-infosec.com/2018/11/06/oracle-ebs-security-auditing/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
         </div>
 
       </div>

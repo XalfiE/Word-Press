@@ -33,7 +33,7 @@
 
   <article class="blog-article">
     <div class="container">
-      <div class="article-header reveal">
+      <div class="article-header">
         <div class="article-meta">
           <span class="article-date">May 2017</span>
           <span style="color: var(--gray-400);">&#183;</span><span style="color: var(--gray-400);">1 min read</span>
@@ -41,37 +41,37 @@
         <h1>From Shodan to RCE #2 – Hacking OpenDreambox 2.0.0</h1>
         
       </div>
-      <div class="article-content reveal reveal-delay-1">
+      <div class="article-content">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">The second part of the Shodan to RCE series, exploiting misconfigured Dreambox digital TV set-top boxes for remote code execution.</p>
 
-        <p>A sequel to the last <a href="https://web.archive.org/web/20250114042849/https://the-infosec.com/2017/06/22/hacking-jenkins/">post</a> of what is now becoming a series of “From Shodan to remote code execution”, we now take a look at how to hack misconfigured Dreambox installations. Dreambox is a company which offers Digital TV set top boxes and other related services.</p>
+        <p>A sequel to the last <a href="https://the-infosec.com/2017/06/22/hacking-jenkins/">post</a> of what is now becoming a series of “From Shodan to remote code execution”, we now take a look at how to hack misconfigured Dreambox installations. Dreambox is a company which offers Digital TV set top boxes and other related services.</p>
 
         <p><em>Shodan search:</em></p>
 
         <p>Perform a shodan search as below:</p>
 
-        <figure><img src="https://web.archive.org/web/20250114042849im_/https://the-infosec.com/wp-content/uploads/2017/07/shodan-search_.png?w=750" alt="shodan search_" loading="lazy" /></figure>
+        <figure><img src="images/from-shodan-to-rce-2-opendreambox__shodan-search_.png" alt="shodan search_" loading="lazy" /></figure>
 
         <p>Go through the portals in the search results. The indicator of a vulnerable dreambox installation is the presence of webadmin plugin as below:</p>
 
-        <figure><img src="https://web.archive.org/web/20250114042849im_/https://the-infosec.com/wp-content/uploads/2017/07/webadmin-plugin_-e1499264379175.png?w=750" alt="webadmin-plugin_.png" loading="lazy" /></figure>
+        <figure><img src="images/from-shodan-to-rce-2-opendreambox__webadmin-plugin_-e1499264379175.png" alt="webadmin-plugin_.png" loading="lazy" /></figure>
 
-        <p>From the address bar run linux commands using the syntax: <a href="https://web.archive.org/web/20250114042849/http://212.13.x.129:8081/webadmin/script?command=">http://IP/PORT/webadmin/script?command=</a>|”linux_command” as shown below:</p>
+        <p>From the address bar run linux commands using the syntax: <a href="http://212.13.x.129:8081/webadmin/script?command=">http://IP/PORT/webadmin/script?command=</a>|”linux_command” as shown below:</p>
 
-        <figure><img src="https://web.archive.org/web/20250114042849im_/https://the-infosec.com/wp-content/uploads/2017/07/id-_.png?w=750" alt="id _" loading="lazy" /></figure>
+        <figure><img src="images/from-shodan-to-rce-2-opendreambox__id-_.png" alt="id _" loading="lazy" /></figure>
 
-        <figure><img src="https://web.archive.org/web/20250114042849im_/https://the-infosec.com/wp-content/uploads/2017/07/etc-passwd_.png?w=750" alt="etc passwd_" loading="lazy" /></figure>
+        <figure><img src="images/from-shodan-to-rce-2-opendreambox__etc-passwd_.png" alt="etc passwd_" loading="lazy" /></figure>
 
-        <figure><img src="https://web.archive.org/web/20250114042849im_/https://the-infosec.com/wp-content/uploads/2017/07/etc-shadow_.png?w=750" alt="etc shadow_" loading="lazy" /></figure>
+        <figure><img src="images/from-shodan-to-rce-2-opendreambox__etc-shadow_.png" alt="etc shadow_" loading="lazy" /></figure>
 
-        <figure><img src="https://web.archive.org/web/20250114042849im_/https://the-infosec.com/wp-content/uploads/2017/07/whoami_.png?w=750" alt="whoami_" loading="lazy" /></figure>
+        <figure><img src="images/from-shodan-to-rce-2-opendreambox__whoami_.png" alt="whoami_" loading="lazy" /></figure>
 
-        <figure><img src="https://web.archive.org/web/20250114042849im_/https://the-infosec.com/wp-content/uploads/2017/07/cat-issue_.png?w=750" alt="cat issue_" loading="lazy" /></figure>
+        <figure><img src="images/from-shodan-to-rce-2-opendreambox__cat-issue_.png" alt="cat issue_" loading="lazy" /></figure>
 
-        <p>Credits:  <a href="https://web.archive.org/web/20250114042849/https://github.com/ninj4c0d3r">Jonatas Fil,</a> the discoverer of the vulnerability.</p>
+        <p>Credits:  <a href="https://github.com/ninj4c0d3r">Jonatas Fil,</a> the discoverer of the vulnerability.</p>
 
         <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
-          Originally published on <a href="https://web.archive.org/web/2024/https://the-infosec.com/2017/05/12/from-shodan-to-rce-opendreambox-2-0-0-code-execution/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
+          Originally published on <a href="https://the-infosec.com/2017/05/12/from-shodan-to-rce-opendreambox-2-0-0-code-execution/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
         </div>
 
       </div>

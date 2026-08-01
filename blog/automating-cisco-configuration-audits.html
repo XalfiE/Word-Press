@@ -33,25 +33,48 @@
 
   <article class="blog-article">
     <div class="container">
-      <div class="article-header reveal">
+      <div class="article-header">
         <div class="article-meta">
           <span class="article-date">March 2025</span>
-          
+          <span style="color: var(--gray-400);">&#183;</span><span style="color: var(--gray-400);">1 min read</span>
         </div>
         <h1>Automating Cisco Configuration Audits</h1>
         
       </div>
-      <div class="article-content reveal reveal-delay-1">
+      <div class="article-content">
         <p class="lead" style="font-size: 20px; color: var(--gold-500);">Strengthen your Cisco network by automating configuration audits with ease. A practical guide to security compliance checking.</p>
 
-        <div class="archive-notice" style="background: rgba(255,255,255,0.03); padding: 32px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); margin-top: 48px;">
-          <h3 style="margin-top: 0;">Archive Notice</h3>
-          <p>This article was originally published on the legacy WordPress blog. The content is currently preserved in archive format.</p>
-          <p>You can view the original snapshot, complete with any images and comments, on the Wayback Machine:</p>
-          <a href="https://web.archive.org/web/2025/https://the-infosec.com/2025/03/14/strengthen-your-cisco-network-automating-configuration-audits-with-ease/" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-flex; margin-top: 16px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width: 20px; height: 20px; margin-right: 8px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
-            View Full Archive
-          </a>
+        <h2>Introduction</h2>
+
+        <p>Network security and infrastructure reliability depend heavily on correctly configured network devices, especially Cisco routers, switches, and firewalls. A single misconfiguration can introduce critical vulnerabilities or non-compliance.</p>
+
+        <p>To streamline automated compliance verification across Cisco network infrastructure, I developed the <strong>Cisco Configuration File Auditing Tool (ccfat)</strong>. This utility parses Cisco IOS/NX-OS configuration backups against industry hardening benchmarks.</p>
+
+        <h2>Why Audit Cisco Router &amp; Switch Configurations?</h2>
+
+        <p>Common security flaws found during network architecture reviews include:</p>
+
+        <ul>
+          <li>Weak or legacy authentication protocols (e.g., Telnet enabled instead of SSHv2).</li>
+          <li>Insecure SNMP community strings (public/private or cleartext SNMPv1/v2c).</li>
+          <li>Missing AAA server configurations or local fallback weaknesses.</li>
+          <li>Unrestricted VTY access control lists (ACLs) permitting management from untrusted subnets.</li>
+        </ul>
+
+        <h2>Key Features of CCFAT</h2>
+
+        <ul>
+          <li>Automated Hardening Checks: Scans IOS configuration lines for CIS Benchmark compliance.</li>
+          <li>Cleartext Secret Detection: Flags type 0 passwords and weak type 7 reversible hashes.</li>
+          <li>Actionable Remediation Advice: Outputs specific Cisco IOS configuration commands to remediate identified gaps.</li>
+        </ul>
+
+        <h2>Getting Started</h2>
+
+        <p>You can inspect your Cisco configurations by running <code>ccfat</code> against your exported running-config files to generate structured HTML or JSON compliance reports.</p>
+
+        <div style="margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 14px; color: var(--gray-500);">
+          Originally published on <a href="https://the-infosec.com/2025/03/14/strengthen-your-cisco-network-automating-configuration-audits-with-ease/" target="_blank" rel="noopener" style="color: var(--gold-500);">the-infosec.com</a>
         </div>
 
       </div>
