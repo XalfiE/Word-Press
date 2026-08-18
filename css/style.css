@@ -589,6 +589,188 @@ section {
 }
 
 /* =========================================
+   EXECUTIVE LEADERSHIP
+   ========================================= */
+.leadership-section {
+  padding: var(--section-padding);
+  background: linear-gradient(180deg, rgba(10, 26, 63, 0.28), rgba(3, 8, 15, 0));
+}
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.leadership-card {
+  position: relative;
+  overflow: hidden;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  min-height: 210px;
+  transition: all var(--transition-normal);
+}
+
+.leadership-card::after {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  right: -55px;
+  top: -55px;
+  background: radial-gradient(circle, rgba(202, 171, 87, 0.16), transparent 70%);
+}
+
+.leadership-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(202, 171, 87, 0.42);
+  box-shadow: var(--shadow-gold);
+}
+
+.leadership-kicker {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold-500);
+  letter-spacing: 1.5px;
+  margin-bottom: 22px;
+}
+
+.leadership-card h3 {
+  font-size: 20px;
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.leadership-card p {
+  color: var(--gray-300);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.leadership-scope {
+  margin-top: 24px;
+  padding: 28px 30px;
+  border: 1px solid rgba(202, 171, 87, 0.24);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(202, 171, 87, 0.08), rgba(6, 15, 41, 0.55));
+}
+
+.leadership-scope .scope-label {
+  display: block;
+  font-family: var(--font-mono);
+  color: var(--gold-500);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 11px;
+  margin-bottom: 7px;
+}
+
+.leadership-scope strong {
+  display: block;
+  font-size: 19px;
+  margin-bottom: 7px;
+}
+
+.leadership-scope p {
+  color: var(--gray-300);
+  font-size: 14px;
+}
+
+.credential-strip {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: rgba(6, 15, 41, 0.48);
+}
+
+.credential-item {
+  padding: 22px 18px;
+  text-align: center;
+  border-right: 1px solid var(--glass-border);
+}
+
+.credential-item:last-child { border-right: 0; }
+
+.credential-item span {
+  display: block;
+  color: var(--gold-500);
+  font-weight: 800;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.credential-item small {
+  display: block;
+  color: var(--gray-400);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+/* =========================================
+   EXECUTIVE CREDENTIALS — ABOUT PAGE
+   ========================================= */
+.credentials-section {
+  padding: 80px 0;
+  background: rgba(10, 26, 63, 0.16);
+}
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.credential-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  min-height: 190px;
+  transition: all var(--transition-normal);
+}
+
+.credential-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(202, 171, 87, 0.42);
+  box-shadow: var(--shadow-gold);
+}
+
+.credential-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--gold-500);
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  margin-bottom: 15px;
+}
+
+.credential-card h3 {
+  font-size: 17px;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.credential-card p {
+  font-size: 13px;
+  color: var(--gray-300);
+  line-height: 1.65;
+}
+
+.executive-summary-banner p {
+  max-width: 860px;
+  color: var(--gray-200);
+}
+
+/* =========================================
    HALL OF FAME
    ========================================= */
 .hall-of-fame {
@@ -1682,6 +1864,23 @@ a.logo-card {
     font-size: 48px;
   }
 
+  .leadership-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .credential-strip,
+  .credentials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .credential-item:nth-child(2) {
+    border-right: 0;
+  }
+
+  .credential-item:nth-child(-n+2) {
+    border-bottom: 1px solid var(--glass-border);
+  }
+
   .tools-grid {
     grid-template-columns: 1fr;
   }
@@ -1783,6 +1982,30 @@ a.logo-card {
   .footer-links {
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .leadership-grid,
+  .credential-strip,
+  .credentials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .credential-item {
+    border-right: 0;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .credential-item:last-child {
+    border-bottom: 0;
+  }
+
+  .leadership-card {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .leadership-scope {
+    padding: 24px;
   }
 
   .achievements-grid {
